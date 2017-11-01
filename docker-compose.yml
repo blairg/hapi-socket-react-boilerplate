@@ -1,0 +1,9 @@
+version: '3'
+services:
+  boilerplate:
+    build: .
+    container_name: hapi-socket-react-boilerplate-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src/:/usr/app/src/

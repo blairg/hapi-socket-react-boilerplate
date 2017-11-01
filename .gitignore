@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# Boilerplate specific directories
+ssl/*
+!ssl/.gitkeep
+public/js/
+dist/
