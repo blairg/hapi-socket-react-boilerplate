@@ -1,0 +1,19 @@
+Hapi folder structure
+swagger
+web sockets
+https
+http/2
+
+Webpack
+React SSR
+Redux
+Thunk
+
+Test - mocha/chai. Could be Jest?
+
+Docker
+
+Local development 
+Build folder
+
+VS Code debugging

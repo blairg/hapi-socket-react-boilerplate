@@ -3,6 +3,12 @@ import Axios from 'axios';
 
 const socketPrefix = 'todos';
 
+const createNotification = (title, options) => {
+  const notification = new Notification(title, options);
+  
+  setTimeout(notification.close.bind(notification), 2500);
+};
+
 const notifyOfChanges = (message) => {
   const title = message ? message.title : 'All Todos Deleted!';
   const options = {
@@ -19,9 +25,7 @@ const notifyOfChanges = (message) => {
   // Let's check whether notification permissions have already been granted
   else if (Notification.permission === 'granted') {
     // If it's okay let's create a notification
-    const notification = new Notification(title, options);
-
-    setTimeout(notification.close.bind(notification), 5000);
+    createNotification(title, options);
   }
 
   // Otherwise, we need to ask the user for permission
@@ -29,9 +33,7 @@ const notifyOfChanges = (message) => {
     Notification.requestPermission((permission) => {
       // If the user accepts, let's create a notification
       if (permission === 'granted') {
-        const notification = new Notification(title, options);
-        
-        setTimeout(notification.close.bind(notification), 5000);
+        createNotification(title, options);
       }
     });
   }

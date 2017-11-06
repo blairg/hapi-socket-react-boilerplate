@@ -13,6 +13,9 @@ module.exports = {
     handler: (request, reply) => {
       return reply(cacheService.get()).code(HttpStatus.OK);
     },
+    description: 'Get todos',
+    notes: 'Gets the todos',
+    tags: ['api'],
   },
   add: {
     handler: (request, reply) => {
@@ -38,6 +41,9 @@ module.exports = {
 
       return reply({ created: 'OK' }).code(HttpStatus.CREATED);
     },
+    description: 'Add todo',
+    notes: 'Adds a todo',
+    tags: ['api'],
   },
   delete: {
     handler: (request, reply) => {
@@ -46,5 +52,8 @@ module.exports = {
 
       return reply({ deleted: 'OK' }).code(HttpStatus.RESET_CONTENT);
     },
+    description: 'Delete todos',
+    notes: 'Deletes all todos',
+    tags: ['api'],
   },
 };

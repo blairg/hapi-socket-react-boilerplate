@@ -1,19 +1,14 @@
 import Hapi from 'hapi';
 import Http2 from 'http2';
-import Nes from 'nes';
-import Inert from 'inert';
 import path from 'path';
 import fs from 'fs';
 import winston from 'winston';
 
+// Hapi JS - Plugins
+import Plugins from './plugins';
+
 // Hapi JS - Routes
 import Routes from './routes/all';
-
-// SSL Certificate
-const options = {
-  key: fs.readFileSync(`${process.cwd()}/ssl/cert.key`),
-  cert: fs.readFileSync(`${process.cwd()}/ssl/cert.pem`),
-};
 
 // Logging
 const logToConsole = (type, message) => {
@@ -24,11 +19,20 @@ const logToConsole = (type, message) => {
   winston.log('info', message);
 };
 
+const host = process.env.HOST ? process.env.HOST : 'localhost';
+
+// SSL Certificate
+const options = {
+  key: fs.readFileSync(`${process.cwd()}/ssl/cert.key`),
+  cert: fs.readFileSync(`${process.cwd()}/ssl/cert.pem`),
+};
+
 // Create a server with a host and port
 const server = new Hapi.Server();
+
 server.connection({
   listener: Http2.createServer(options),
-  host: 'localhost',
+  host: host,
   port: 3000,
   tls: true,
 });
@@ -37,7 +41,7 @@ server.connection({
 const socketPrefix = 'todos';
 
 // Instrument Hapi.js Server
-server.register([Nes, Inert], (error) => {
+server.register(Plugins, (error) => {
   if (error) {
     logToConsole('error', error);
   }

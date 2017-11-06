@@ -63,6 +63,9 @@ const serverConfig = {
   stats: {
     colors: true,
   },
+  resolve: {
+    extensions: [ '.ts', '.tsx', ".js", ".json"]
+  },
 };
 
 module.exports = [clientConfig, serverConfig];
