@@ -6,14 +6,13 @@ http/2
 
 Webpack
 React SSR
-Redux
+Redux SSR
 Thunk
 
 Test - mocha/chai. Could be Jest?
 
 Docker
 
-Local development 
 Build folder
 
 VS Code debugging
