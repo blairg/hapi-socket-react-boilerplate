@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { fn as momentProto } from 'moment';
 import sinon from 'sinon';
-import { calculateTimeDifference } from './../../../src/shared/helpers/timeHelper';
+import calculateTimeDifference from './../../../src/shared/helpers/timeHelper';
 
 const sandbox = sinon.sandbox.create();
 
