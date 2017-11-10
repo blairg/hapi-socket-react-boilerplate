@@ -7,8 +7,8 @@ cache:
     - "node_modules"
 script: 
   - npm run lint
-  - npm test
+  - npm test:coverage
 after_success:
   - ls -lah
   - cat ./coverage/lcov.info
-  - npm run coveralls
+  - cat ./coverage/lcov.info | coveralls
