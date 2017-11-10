@@ -22,7 +22,7 @@
     "test": "mocha -c --compilers js:babel-core/register --recursive",
     "test:watch": "mocha -c -w --compilers js:babel-core/register --recursive",
     "test:coverage": "babel-node node_modules/.bin/babel-istanbul cover --include-all-sources --root ./src _mocha -- --recursive",
-    "coveralls": "npm run test:coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm run test:coverage --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "author": "Blair Garrett <blair.garrett1@gmail.com>",
   "license": "ISC",
