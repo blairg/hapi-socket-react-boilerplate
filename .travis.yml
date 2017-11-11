@@ -9,5 +9,4 @@ script:
   - npm run lint
   - npm run test:coverage
 after_success:
-  - ls -lah ./node_modules
   - cat ./coverage/lcov.info | coveralls
