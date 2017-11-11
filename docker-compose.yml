@@ -1,0 +1,11 @@
+version: '3'
+services:
+  boilerplate:
+    build: .
+    container_name: hapi-boilerplate
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./src/:/usr/app/src/
+    environment:
+      - HOST=0.0.0.0

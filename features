@@ -1,0 +1,22 @@
+Hapi folder structure
+swagger
+web sockets
+https
+http/2
+
+Webpack
+React SSR
+Redux SSR
+Thunk
+
+Test - mocha/chai. Could be Jest?
+
+Docker
+
+Build folder
+
+VS Code debugging
+    Mocha Tests
+    Debug dev
+    Debug Dev with modules
+    Install this plugin for coverage - VSCode LCOV

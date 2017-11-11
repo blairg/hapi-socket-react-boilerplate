@@ -1,0 +1,11 @@
+Airbnb eslint
+
+Use SASS for styles.
+
+Webpack - pass enviornment var in. Then switch between web and node and also for the envs. Config folder. Node and web. webpack.common, 
+webpack.parts (babel loader), webpack.development, webpack.production.
+Use npm package 'webpack-merge'.
+
+Tidy up and improve React components.
+Add unit tests.
+
