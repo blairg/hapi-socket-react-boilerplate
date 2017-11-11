@@ -17,4 +17,9 @@ const Swagger = {
     'options': options
 };
 
-export default [Nes, Inert, Vision, Swagger];
+export default [
+    {plugin: Nes }, 
+    {plugin: Inert }, 
+    // {plugin: Vision }, 
+    // {plugin: Swagger }
+];

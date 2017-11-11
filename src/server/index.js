@@ -29,36 +29,75 @@ const options = {
 /*eslint-enable */
 
 // Create a server with a host and port
-const server = new Hapi.Server();
-
-server.connection({
-    listener: Http2.createServer(options),
+const server = new Hapi.Server({
     host: host,
     port: 3000,
-    tls: true,
 });
+
+// server.connection({
+//     listener: Http2.createServer(options),
+//     host: host,
+//     port: 3000,
+//     tls: true,
+// });
 
 // TODO: put in config
 const socketPrefix = 'todos';
 
 // Instrument Hapi.js Server
-server.register(Plugins, (error) => {
-    if (error) {
-        logToConsole('error', error);
-    }
+// server.register(Plugins, (error) => {
+//     if (error) {
+//         logToConsole('error', error);
+//     }
+
+//     server.route(Routes.Static);
+//     server.route(Routes.Api);
+//     server.route(Routes.Index);
+
+//     server.subscription(`/${socketPrefix}`);
+// });
+
+// register plugins, wrapped in async/await
+const applyPlugins = async () => {  
+    await server.register(Plugins);
 
     server.route(Routes.Static);
     server.route(Routes.Api);
     server.route(Routes.Index);
 
-    server.subscription(`/${socketPrefix}`);
-});
+    // var io = require("socket.io")(server.listener);
+ 
+    // io.on("connection", function (socket) {
+    
+    //     console.log('connected');
+    
+    //     // Do all the socket stuff here.
+    
+    // })
 
-// Start the server
-server.start((err) => {
-    if (err) {
-        throw err;
+    //server.subscription(`/${socketPrefix}`);
+};
+
+//liftOff();
+
+// // Start the server
+// server.start((err) => {
+//     if (err) {
+//         throw err;
+//     }
+
+//     logToConsole('info', `Server running at: ${server.info.uri}`);
+// });
+
+const startServer = async () => {
+    try {  
+        await applyPlugins();
+        await server.start();
+        logToConsole('info', `Server running at: ${server.info.uri}`);
     }
+    catch (error) {  
+        logToConsole('error', error);
+    }
+};
 
-    logToConsole('info', `Server running at: ${server.info.uri}`);
-});
+startServer();

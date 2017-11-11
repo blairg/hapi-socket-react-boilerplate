@@ -11,7 +11,7 @@ const badRequestResponse = reply => reply({ 'bad request': 'false' }).code(HttpS
 module.exports = {
     get: {
         handler: (request, reply) => {
-            return reply(cacheService.get()).code(HttpStatus.OK);
+            return reply.response(cacheService.get()).code(HttpStatus.OK);
         },
         description: 'Get todos',
         notes: 'Gets the todos',
@@ -39,7 +39,7 @@ module.exports = {
             cacheService.set(todos);
             request.server.publish(`/${socketPrefix}`, todos);
 
-            return reply({ created: 'OK' }).code(HttpStatus.CREATED);
+            return reply.response({ created: 'OK' }).code(HttpStatus.CREATED);
         },
         description: 'Add todo',
         notes: 'Adds a todo',
@@ -50,7 +50,7 @@ module.exports = {
             cacheService.set([]);
             request.server.publish(`/${socketPrefix}`, []);
 
-            return reply({ deleted: 'OK' }).code(HttpStatus.RESET_CONTENT);
+            return reply.response({ deleted: 'OK' }).code(HttpStatus.RESET_CONTENT);
         },
         description: 'Delete todos',
         notes: 'Deletes all todos',

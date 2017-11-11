@@ -40,7 +40,7 @@ module.exports = {
             let indexPage = DecodeHtml(ReactDOMServer.renderToStaticMarkup(<Index todos={todoComponent} />));
             indexPage = indexPage.replace(/&quot;/gi, '"');
 
-            return reply(indexPage).code(HttpStatus.OK);
+            return reply.response(indexPage).code(HttpStatus.OK);
         },
     },
 };

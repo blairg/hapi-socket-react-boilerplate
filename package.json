@@ -58,14 +58,14 @@
     "axios": "^0.16.2",
     "babel-preset-env": "^1.6.1",
     "decode-html": "^1.0.2",
-    "hapi": "16.2.0",
+    "hapi": "^17.0.1",
     "hapi-swagger": "^8.0.0",
     "http-status": "^1.0.1",
     "http2": "^3.3.7",
-    "inert": "^4.2.1",
+    "inert": "^5.0.1",
     "memory-cache": "^0.2.0",
     "moment": "^2.19.1",
-    "nes": "^6.4.3",
+    "nes": "^7.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
@@ -73,9 +73,13 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "socket.io": "^2.0.4",
     "socket.io-client": "^2.0.4",
     "vision": "^4.1.1",
     "winston": "^2.4.0"
+  },
+  "peerDependencies": {
+    "hapi": "17.x.x"
   },
   "engines": {
     "node": "8.9.0",

@@ -42,9 +42,13 @@ const notifyOfChanges = (message) => {
 };
 
 export default function subscribeToTodos(callback) {
-    const client = new Nes.Client('wss://localhost:3000');
+    const client = new Nes.Client('ws://localhost:3000/todos');
+
+    console.log(client);
 
     client.connect((error) => {
+        console.log('connected to socket');
+
         const handler = (updates, flags) => {
             if (error) {
                 /*eslint-disable */
@@ -62,7 +66,8 @@ export default function subscribeToTodos(callback) {
             callback(updates);
         };
 
-        client.subscribe(`/${socketPrefix}`, handler, (err) => {
+        client.subscribe('/', handler, (err) => {
+            console.log(`subscribed to ${socketPrefix}`);
             if (err) {
                 /*eslint-disable */
                 console.log(err);
