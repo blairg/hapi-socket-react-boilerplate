@@ -9,51 +9,49 @@ const badRequestResponse = reply => reply({ 'bad request': 'false' }).code(HttpS
 
 // TODO: Convert to a class
 module.exports = {
-    get: {
-        handler: (request, reply) => {
-            return reply(cacheService.get()).code(HttpStatus.OK);
-        },
-        description: 'Get todos',
-        notes: 'Gets the todos',
-        tags: ['api'],
+  get: {
+    handler: (request, reply) => reply(cacheService.get()).code(HttpStatus.OK),
+    description: 'Get todos',
+    notes: 'Gets the todos',
+    tags: ['api'],
+  },
+  add: {
+    handler: (request, reply) => {
+      const { payload } = request;
+
+      if (!payload) {
+        return badRequestResponse(reply);
+      }
+
+      let todos = cacheService.get();
+
+      if (!todos) {
+        todos = [];
+      }
+
+      todos.unshift({
+        timestamp: Moment().unix(),
+        ...payload,
+      });
+
+      cacheService.set(todos);
+      request.server.publish(`/${socketPrefix}`, todos);
+
+      return reply({ created: 'OK' }).code(HttpStatus.CREATED);
     },
-    add: {
-        handler: (request, reply) => {
-            const payload = request.payload;
+    description: 'Add todo',
+    notes: 'Adds a todo',
+    tags: ['api'],
+  },
+  delete: {
+    handler: (request, reply) => {
+      cacheService.set([]);
+      request.server.publish(`/${socketPrefix}`, []);
 
-            if (!payload) {
-                return badRequestResponse(reply);
-            } 
-
-            let todos = cacheService.get();
-
-            if (!todos) {
-                todos = [];
-            }
-
-            todos.unshift({
-                timestamp: Moment().unix(),
-                ...payload,
-            });
-
-            cacheService.set(todos);
-            request.server.publish(`/${socketPrefix}`, todos);
-
-            return reply({ created: 'OK' }).code(HttpStatus.CREATED);
-        },
-        description: 'Add todo',
-        notes: 'Adds a todo',
-        tags: ['api'],
+      return reply({ deleted: 'OK' }).code(HttpStatus.RESET_CONTENT);
     },
-    delete: {
-        handler: (request, reply) => {
-            cacheService.set([]);
-            request.server.publish(`/${socketPrefix}`, []);
-
-            return reply({ deleted: 'OK' }).code(HttpStatus.RESET_CONTENT);
-        },
-        description: 'Delete todos',
-        notes: 'Deletes all todos',
-        tags: ['api'],
-    },
+    description: 'Delete todos',
+    notes: 'Deletes all todos',
+    tags: ['api'],
+  },
 };
