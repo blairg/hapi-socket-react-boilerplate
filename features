@@ -3,8 +3,10 @@ swagger
 web sockets
 https
 http/2
+desktop notification
 
 Webpack
+
 React SSR
 Redux SSR
 Thunk
@@ -12,11 +14,15 @@ Thunk
 Test - mocha/chai. Could be Jest?
 
 Docker
-
-Build folder
+    Build folder
 
 VS Code debugging
     Mocha Tests
     Debug dev
     Debug Dev with modules
     Install this plugin for coverage - VSCode LCOV
+
+Travis
+    yml file
+    coveralls
+    snyk

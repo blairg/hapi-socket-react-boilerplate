@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
