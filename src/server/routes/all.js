@@ -1,9 +1,9 @@
-import Static from './static';
+import Public from './public';
 import Api from './api';
 import Index from './index';
 
-module.exports = {
-  Static,
+export default {
+  Public,
   Api,
   Index,
 };

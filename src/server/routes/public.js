@@ -1,6 +1,6 @@
-import Controller from '../controllers/static';
+import Controller from '../controllers/public';
 
-module.exports = [
+export default [
   {
     method: 'GET',
     path: '/css/{param*}',

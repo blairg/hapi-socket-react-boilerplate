@@ -15,7 +15,7 @@ export default () => {
   };
 
   service.set = (values, timeout = 60000) => {
-    if (values) {
+    if (values instanceof Array) {
       cache.put(cacheKey, JSON.stringify(values), timeout);
     }
   };

@@ -8,7 +8,7 @@ const socketPrefix = 'todos';
 const badRequestResponse = reply => reply({ 'bad request': 'false' }).code(HttpStatus.BAD_REQUEST);
 
 // TODO: Convert to a class
-module.exports = {
+export default {
   get: {
     handler: (request, reply) => reply(cacheService.get()).code(HttpStatus.OK),
     description: 'Get todos',

@@ -26,7 +26,7 @@ const store = createStore(rootReducer, applyMiddleware(
 
 const cacheService = CacheServiceImport();
 
-module.exports = {
+export default {
   index: {
     // Initial Load where Todos are server side rendered.
     handler: (request, reply) => {

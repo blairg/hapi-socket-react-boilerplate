@@ -1,6 +1,6 @@
 import Controller from '../controllers/index';
 
-module.exports = [
+export default [
   {
     method: 'GET',
     path: '/index',

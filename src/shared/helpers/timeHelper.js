@@ -1,48 +1,35 @@
 import Moment from 'moment';
 
-export default function calculateTimeDifference(blogEntryDate) {
-  const now = parseInt(Moment().unix(), 10);
-  const diff = now - blogEntryDate;
+const timeRangeMessage = (value, label) => `${Math.round(value)} ${label}${(value === 1) ? '' : 's'} ago`;
 
-  if (diff === 0) {
-    return '1 second ago';
-  }
+const calculateSeconds = (timeDifference) => {
+  const seconds = (timeDifference < 1) ? 1 : timeDifference;
 
-  if (diff === 60) {
-    return '1 minute ago';
-  }
+  return timeRangeMessage(seconds, 'second');
+};
 
-  if (diff > 60) {
-    const hours = diff / 3600;
+const messageToDisplay = (timeDifference, dateTypeToCheck, dateType) => {
+  const calculatedDifference = timeDifference / dateTypeToCheck;
 
-    if (hours >= 1) {
-      if (hours >= 24) {
-        const days = hours / 24;
+  return timeRangeMessage(calculatedDifference, dateType);
+};
 
-        if (days >= 7) {
-          const weeks = days / 7;
+export default function calculateTimeDifference(todoDate) {
+  const minuteInSeconds = 60;
+  const hourInSeconds = 3600;
+  const dayInSeconds = 86400;
+  const weekInSeconds = 604800;
+  const monthInSeconds = 2419200;
+  const yearInSeconds = 29030400;
+  const timeNow = parseInt(Moment().unix(), 10);
+  const timeDifference = timeNow - todoDate;
 
-          if (weeks >= 4) {
-            const months = weeks / 4;
+  if (timeDifference < minuteInSeconds) return calculateSeconds(timeDifference);
+  if (timeDifference < hourInSeconds) return messageToDisplay(timeDifference, minuteInSeconds, 'minute');
+  if (timeDifference < dayInSeconds) return messageToDisplay(timeDifference, hourInSeconds, 'hour');
+  if (timeDifference < weekInSeconds) return messageToDisplay(timeDifference, dayInSeconds, 'day');
+  if (timeDifference < monthInSeconds) return messageToDisplay(timeDifference, weekInSeconds, 'week');
+  if (timeDifference < yearInSeconds) return messageToDisplay(timeDifference, monthInSeconds, 'month');
 
-            if (months >= 12) {
-              const years = months / 12;
-
-              return `${Math.round(years)} week${(years === 1) ? '' : 's'} ago`;
-            }
-
-            return `${Math.round(months)} week${(months === 1) ? '' : 's'} ago`;
-          }
-
-          return `${Math.round(weeks)} week${(weeks === 1) ? '' : 's'} ago`;
-        }
-
-        return `${Math.round(days)} day${(days === 1) ? '' : 's'} ago`;
-      }
-
-      return `${Math.round(hours)} hour${(hours === 1) ? '' : 's'} ago`;
-    }
-    return `${Math.round(diff / 60)} minute${(diff === 1) ? '' : 's'} ago`;
-  }
-  return `${diff} seconds ago`;
+  return messageToDisplay(timeDifference, yearInSeconds, 'year');
 }
