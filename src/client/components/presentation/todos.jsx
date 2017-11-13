@@ -41,9 +41,7 @@ class Todos extends React.Component {
   }
 
   render() {
-    const entries = Todos.getEntries(
-      this.state.entries ? this.state.entries : this.props.entries,
-    );
+    const entries = Todos.getEntries(this.state.entries ? this.state.entries : this.props.entries);
 
     return (
       <CreateTodo entries={entries} />

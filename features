@@ -13,6 +13,8 @@ Test - mocha/chai. Could be Jest?
     code coverage Istanbul
         -yml file for instrumenting
 
+Travis
+
 Docker
 
 Build folder
