@@ -48,7 +48,7 @@ server.register(Plugins, (error) => {
     logToConsole('error', error);
   }
 
-  server.route(Routes.Static);
+  server.route(Routes.Public);
   server.route(Routes.Api);
   server.route(Routes.Index);
 
