@@ -61,9 +61,9 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.1",
     "babel-preset-env": "^1.6.1",
-    "decode-html": "^1.0.2",
+    "decode-html": "^2.0.0",
     "hapi": "16.2.0",
     "hapi-swagger": "^8.0.0",
     "http-status": "^1.0.1",
