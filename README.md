@@ -8,7 +8,7 @@ Boilerplate app to get you up and running with Hapi, HTTP/2, Web Sockets and Rea
 
 Deployed on Heroku. HTTP/2 is not currently supported on Heroku ([supported versions](https://devcenter.heroku.com/articles/http-routing#http-versions-supported), so this can not be showcased. If there is appetitle for a fully fledged app with proper SSL and HTTP/2, I'll stand something up on Digital Ocean.
 
-[!Heroku App](https://hapi-boilerplate-docker.herokuapp.com/index)]
+[Heroku App](https://hapi-boilerplate-docker.herokuapp.com/index)
 
 ## Run Locally
 
