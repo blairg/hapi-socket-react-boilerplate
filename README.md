@@ -36,6 +36,10 @@ Do the following steps: -
 * Run - `docker-compose up`
 * In your browser go to - [Running Application](https://localhost:3000/index)
 
+#### Swagger
+
+For a bare metal install of Swagger hit [Example](https://localhost:3000/documentation)
+
 ### Tests
 
 * npm test
