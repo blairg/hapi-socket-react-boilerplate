@@ -10,6 +10,10 @@ Redux SSR
 Thunk
 
 Test - mocha/chai. Could be Jest?
+    code coverage Istanbul
+        -yml file for instrumenting
+
+Travis
 
 Docker
 
@@ -19,4 +23,3 @@ VS Code debugging
     Mocha Tests
     Debug dev
     Debug Dev with modules
-    Install this plugin for coverage - VSCode LCOV

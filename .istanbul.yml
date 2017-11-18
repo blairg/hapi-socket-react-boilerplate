@@ -1,0 +1,10 @@
+instrumentation:
+    root: .
+    extensions:
+        - .js
+        - .jsx
+    default-excludes: true
+    excludes:
+        - server/index.js
+        - client/app.jsx
+        - client/subscribers/*

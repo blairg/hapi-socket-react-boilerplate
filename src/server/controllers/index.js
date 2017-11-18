@@ -1,5 +1,6 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable import/extensions */
 
+import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -21,25 +22,25 @@ const store = createStore(rootReducer, applyMiddleware(
   thunkMiddleware,
   loggerMiddleware)
 );
-/*eslint-enable */
+/* eslint-enable */
 
 const cacheService = CacheServiceImport();
 
-module.exports = {
-    index: {
+export default {
+  index: {
     // Initial Load where Todos are server side rendered.
-        handler: (request, reply) => {
-            const todos = cacheService.get();
+    handler: (request, reply) => {
+      const todos = cacheService.get();
 
-            const todoComponent = ReactDOMServer.renderToString(<Provider store={store}><Todos
-                entries={todos}
-            />
-            </Provider>);
+      /* eslint-disable react/jsx-filename-extension */
+      const reduxStore = <Provider store={store}><Todos entries={todos} /></Provider>;
+      const todoComponent = ReactDOMServer.renderToString(reduxStore);
+      const indexComponent = <Index todos={todoComponent} />;
 
-            let indexPage = DecodeHtml(ReactDOMServer.renderToStaticMarkup(<Index todos={todoComponent} />));
-            indexPage = indexPage.replace(/&quot;/gi, '"');
+      let indexPage = DecodeHtml(ReactDOMServer.renderToStaticMarkup(indexComponent));
+      indexPage = indexPage.replace(/&quot;/gi, '"');
 
-            return reply(indexPage).code(HttpStatus.OK);
-        },
+      return reply(indexPage).code(HttpStatus.OK);
     },
+  },
 };

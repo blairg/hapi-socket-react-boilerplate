@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+/* eslint-disable react/forbid-prop-types */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -10,10 +13,6 @@ class Todos extends React.Component {
   static getEntries(entries) {
     const entriesNew = [];
     let key = 0;
-
-    if (!entries) {
-      return entriesNew;
-    }
 
     entries.map((entry) => {
       const updatedEntry = Object.assign({}, entry);
@@ -41,9 +40,7 @@ class Todos extends React.Component {
   }
 
   render() {
-    const entries = Todos.getEntries(
-      this.state.entries ? this.state.entries : this.props.entries,
-    );
+    const entries = Todos.getEntries(this.state.entries ? this.state.entries : this.props.entries);
 
     return (
       <CreateTodo entries={entries} />

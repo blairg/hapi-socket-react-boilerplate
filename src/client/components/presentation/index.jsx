@@ -8,7 +8,9 @@ const Index = (props) => {
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
-        <title>Node.js + Hapi.js + Socket.io + HTTPS + HTTP/2 + React.js + Redux.js | Todo Example</title>
+        <title>
+          Node.js + Hapi.js + Socket.io + HTTPS + HTTP/2 + React.js + Redux.js | Todo Example
+        </title>
         <link rel="preload" as="style" href="/css/normalize.css" />
         <link rel="preload" as="style" href="/css/skeleton.css" />
         <link rel="preload" as="style" href="/css/site.css" />
@@ -16,7 +18,7 @@ const Index = (props) => {
 
         <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
         <link rel="stylesheet" type="text/css" href="/css/skeleton.css" />
-        <link  rel="stylesheet" type="text/css" href="/css/site.css" />
+        <link rel="stylesheet" type="text/css" href="/css/site.css" />
       </head>
       <body>
         <div id="app">
