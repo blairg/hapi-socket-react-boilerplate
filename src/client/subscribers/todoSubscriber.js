@@ -44,7 +44,7 @@ const notifyOfChanges = (message) => {
 };
 
 export default function subscribeToTodos(callback) {
-  const client = new Nes.Client('wss://localhost:3000');
+  const client = new Nes.Client('wss://hapi-boilerplate-docker.herokuapp.com');
 
   client.connect((error) => {
     const handler = (updates, flags) => {

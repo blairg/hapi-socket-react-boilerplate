@@ -14,6 +14,16 @@ Test - mocha/chai. Could be Jest?
         -yml file for instrumenting
 
 Travis
+    - Tests
+    - coveralls
+    - linting
+    - deployment to Heroku
+
+Deployment 
+    - Heroku
+        - build in current folder
+        - docker tag hapisocketreactboilerplate_boilerplate registry.heroku.com/hapi-boilerplate-docker/web
+        - docker push registry.heroku.com/hapi-boilerplate-docker/web
 
 Docker
 

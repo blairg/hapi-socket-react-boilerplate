@@ -1,5 +1,8 @@
 FROM node:8.9.0-alpine
 
+ARG PROD
+ARG HOST
+
 COPY ./src /usr/app/src
 COPY ./public/css/ /usr/app/public/css
 COPY webpack.config.js package.json package-lock.json /usr/app/

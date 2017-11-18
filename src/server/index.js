@@ -32,12 +32,19 @@ const options = {
 // Create a server with a host and port
 const server = new Hapi.Server();
 
-server.connection({
-  listener: Http2.createServer(options),
-  host,
-  port,
-  tls: true,
-});
+if (!process.env.PROD) {
+  server.connection({
+    listener: Http2.createServer(options),
+    host,
+    port,
+    tls: true,
+  });
+} else {
+  server.connection({
+    host,
+    port,
+  });
+}
 
 // TODO: put in config
 const socketPrefix = 'todos';
