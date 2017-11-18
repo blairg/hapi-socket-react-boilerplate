@@ -7,3 +7,4 @@ instrumentation:
     excludes:
         - server/index.js
         - client/app.jsx
+        - client/subscribers/*

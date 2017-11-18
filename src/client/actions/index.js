@@ -17,19 +17,19 @@ export function setBody(body) {
 }
 
 export function addPost() {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const { title } = getState().setTitle;
     const { body } = getState().setBody;
     const post = { title, body };
 
-    const request = Axios.post('/todos', post);
+    try {
+      const response = await Axios.post('/todos', post);
 
-    request.then(() => {
-      dispatch({ type: actionTypes.ADD_POST, payload: post });
-    }).catch((error) => {
-      /*eslint-disable */
-            console.log(error);
-            /* eslint-enable */
-    });
+      dispatch({ type: actionTypes.ADD_POST, payload: response.data });
+    } catch (error) {
+      /* eslint-disable */
+      console.error(error);
+      /* eslint-enable */
+    }
   };
 }

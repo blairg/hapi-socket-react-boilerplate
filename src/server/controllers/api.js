@@ -23,11 +23,7 @@ export default {
         return badRequestResponse(reply);
       }
 
-      let todos = cacheService.get();
-
-      if (!todos) {
-        todos = [];
-      }
+      const todos = cacheService.get();
 
       todos.unshift({
         timestamp: Moment().unix(),
