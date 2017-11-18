@@ -2,11 +2,11 @@
 
 Boilerplate app to get you up and running with Hapi, HTTP/2, Web Sockets and React.
 
-[![Build Status](https://travis-ci.org/blairg/hapi-socket-react-boilerplate.svg?branch=master)](https://travis-ci.org/blairg/hapi-socket-react-boilerplate) [![Coverage Status](https://coveralls.io/repos/github/blairg/hapi-socket-react-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/blairg/hapi-socket-react-boilerplate?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate/badge.svg)](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate) [![dependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate) [![devDependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/dev-status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate?type=dev)
+[![Build Status](https://travis-ci.org/blairg/hapi-socket-react-boilerplate.svg?branch=master)](https://travis-ci.org/blairg/hapi-socket-react-boilerplate)  [![Known Vulnerabilities](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate/badge.svg)](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate) [![dependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate) [![devDependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/dev-status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate?type=dev)
 
 ## Example Application
 
-Deployed on Heroku. HTTP/2 is not currently supported on Heroku ([supported versions](https://devcenter.heroku.com/articles/http-routing#http-versions-supported), so this can not be showcased. If there is appetitle for a fully fledged app with proper SSL and HTTP/2, I'll stand something up on Digital Ocean.
+Deployed on Heroku. HTTP/2 is not currently supported on Heroku ([supported versions](https://devcenter.heroku.com/articles/http-routing#http-versions-supported)), so this can not be showcased. If there is appetitle for a fully fledged app with proper SSL and HTTP/2, I'll stand something up on Digital Ocean.
 
 [Heroku App](https://hapi-boilerplate-docker.herokuapp.com/index)
 
