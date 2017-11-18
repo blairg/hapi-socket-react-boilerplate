@@ -8,3 +8,4 @@ instrumentation:
         - server/index.js
         - client/app.jsx
         - client/subscribers/*
+        - client/reducers/*
