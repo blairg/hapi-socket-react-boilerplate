@@ -24,6 +24,7 @@ const notifyOfChanges = (message) => {
     // Let's check if the browser supports notifications
   if (!('Notification' in window)) {
     console.log('This browser does not support desktop notification');
+    return;
   }
 
   // Let's check whether notification permissions have already been granted
@@ -47,6 +48,12 @@ export default function subscribeToTodos(callback) {
   const client = new Nes.Client('wss://hapi-boilerplate-docker.herokuapp.com');
 
   client.connect((error) => {
+    console.log('connecting '); 
+
+    if (error) {
+      console.error(error);
+    }
+
     const handler = (updates, flags) => {
       if (error) {
         /*eslint-disable */
@@ -60,8 +67,8 @@ export default function subscribeToTodos(callback) {
                 /* eslint-enable */
       }
 
-      notifyOfChanges(updates[0]);
       callback(updates);
+      notifyOfChanges(updates[0]);
     };
 
     client.subscribe(`/${socketPrefix}`, handler, (err) => {
