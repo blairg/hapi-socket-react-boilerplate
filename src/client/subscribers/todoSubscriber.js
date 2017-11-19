@@ -24,6 +24,8 @@ const notifyOfChanges = (message) => {
     // Let's check if the browser supports notifications
   if (!('Notification' in window)) {
     console.log('This browser does not support desktop notification');
+
+    return;
   }
 
   // Let's check whether notification permissions have already been granted
@@ -60,8 +62,8 @@ export default function subscribeToTodos(callback) {
                 /* eslint-enable */
       }
 
-      notifyOfChanges(updates[0]);
       callback(updates);
+      notifyOfChanges(updates[0]);
     };
 
     client.subscribe(`/${socketPrefix}`, handler, (err) => {
