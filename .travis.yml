@@ -10,6 +10,7 @@ env:
   global:
     - DOCKER_CACHE_FILE=/home/travis/docker/cache.tar.gz
     - DOCKER_REPOSITORY=registry.heroku.com
+    - DOCKER_DEPLOY_PATH=${DOCKER_REPOSITORY}/${TRAVIS_REPO_SLUG#*/}
 
 before_install:
   - if [ -f ${DOCKER_CACHE_FILE} ]; then gunzip -c ${DOCKER_CACHE_FILE} | docker load; fi
@@ -24,9 +25,9 @@ cache:
 script: 
   - npm run lint
   - npm run test:coverage
-  - docker build -t ${DOCKER_REPOSITORY}/${TRAVIS_REPO_SLUG#*/}/web .
+  - docker build -t ${DOCKER_DEPLOY_PATH}/web .
   - docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY}
-  - docker push registry.heroku.com/hapi-boilerplate-docker/web
+  - docker push ${DOCKER_DEPLOY_PATH}/web
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p $(dirname ${DOCKER_CACHE_FILE}) ; docker save $(docker history -q ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} | grep -v '<missing>') | gzip > ${DOCKER_CACHE_FILE}; fi
 
 after_success:
