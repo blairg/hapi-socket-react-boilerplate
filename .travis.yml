@@ -1,12 +1,25 @@
 language: node_js
+
 node_js:
   - "8"
+
+services:
+  - docker
+
 install: npm i
+
 cache:
   directories:
     - "node_modules"
+
 script: 
   - npm run lint
   - npm run test:coverage
+
 after_success:
   - cat ./coverage/lcov.info | coveralls
+
+before_deploy:
+  - docker build -t registry.heroku.com/hapi-boilerplate-docker/web .
+  - docker login --username=${HEROKU_LOGIN} --password=${HEROKU_PASSWORD} registry.heroku.com
+  - docker push registry.heroku.com/hapi-boilerplate-docker/web
