@@ -22,4 +22,6 @@ after_success:
 before_deploy:
   - docker build -t registry.heroku.com/hapi-boilerplate-docker/web .
   - docker login --username=${HEROKU_LOGIN} --password=${HEROKU_PASSWORD} registry.heroku.com
+
+deploy:
   - docker push registry.heroku.com/hapi-boilerplate-docker/web
