@@ -6,7 +6,7 @@ ARG HOST
 COPY ./src /usr/app/src
 COPY ./public/css/ /usr/app/public/css
 COPY webpack.config.js package.json package-lock.json /usr/app/
-COPY ./ssl/cert.key ./ssl/cert.pem /usr/app/ssl/
+#COPY ./ssl/cert.key ./ssl/cert.pem /usr/app/ssl/
 
 WORKDIR /usr/app
 
