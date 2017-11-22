@@ -18,11 +18,12 @@ cache:
     - "node_modules"
 
 script: 
-  - npm run lint
-  - npm run test:coverage
-  - docker build --cache-from node:8.9.1-alpine -t ${DOCKER_DEPLOY_PATH}/web .
-  - docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY}
-  - docker push ${DOCKER_DEPLOY_PATH}/web
+  - echo ${DOCKER_DEPLOY_PATH}
+  # - npm run lint
+  # - npm run test:coverage
+  # - docker build --cache-from node:8.9.1-alpine -t ${DOCKER_DEPLOY_PATH}/web .
+  # - docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY}
+  # - docker push ${DOCKER_DEPLOY_PATH}/web
 
 after_success:
   - cat ./coverage/lcov.info | coveralls
