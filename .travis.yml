@@ -8,27 +8,21 @@ services:
 
 env:
   global:
-    - DOCKER_CACHE_FILE=/home/travis/docker/cache.tar.gz
     - DOCKER_REPOSITORY=registry.heroku.com
     - DOCKER_DEPLOY_PATH=${DOCKER_REPOSITORY}/${TRAVIS_REPO_SLUG#*/}
-
-before_install:
-  - if [ -f ${DOCKER_CACHE_FILE} ]; then gunzip -c ${DOCKER_CACHE_FILE} | docker load; fi
 
 install: npm i
 
 cache:
   directories:
     - "node_modules"
-    - "/home/travis/docker/"
 
 script: 
   - npm run lint
   - npm run test:coverage
-  - docker build -t ${DOCKER_DEPLOY_PATH}/web .
+  - docker build --cache-from node:8.9.1-alpine -t ${DOCKER_DEPLOY_PATH}/web .
   - docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY}
   - docker push ${DOCKER_DEPLOY_PATH}/web
-  - if [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p $(dirname ${DOCKER_CACHE_FILE}) ; docker save $(docker history -q ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} | grep -v '<missing>') | gzip > ${DOCKER_CACHE_FILE}; fi
 
 after_success:
   - cat ./coverage/lcov.info | coveralls
