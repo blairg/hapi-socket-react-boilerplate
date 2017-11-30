@@ -14,12 +14,11 @@ env:
 
 install: npm i
 
-# cache:
-#   directories:
-#     - "node_modules"
+cache:
+  directories:
+    - "node_modules"
 
 script: 
-  - npm i
   - npm run lint
   - npm run test:coverage
   - npm run build:prod
