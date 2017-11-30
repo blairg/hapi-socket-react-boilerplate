@@ -7,5 +7,6 @@ services:
       - '3000:3000'
     volumes:
       - ./src/:/usr/app/src/
-    environment:
-      - HOST=0.0.0.0
+      - ./ssl/:/usr/app/ssl/:ro
+    env_file:
+      - .env
