@@ -17,10 +17,11 @@ env:
 cache:
   directories:
     # - "node_modules"
-    - "/usr/local/lib/node_modules"
+    # - "/usr/local/lib/node_modules"
 
 script: 
   - rm -rf node_modules
+  - rm -rf /usr/local/lib/node_modules
   - npm install
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react webpack babel-cli babel-istanbul -g
   - npm install webpack babel-istanbul
