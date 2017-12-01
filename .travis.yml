@@ -19,9 +19,10 @@ cache:
     - "node_modules"
 
 script: 
-  - npm install eslint webpack babel-node -g
-  - npm install  --verbose
-  - ls -la
+  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react webpack babel-cli babel-node -g
+  - npm install --verbose
+  - ls /usr/local/ -la
+  - ls node_modules -la
   - npm run lint
   - npm run test:coverage
   - npm run build:prod
