@@ -20,6 +20,7 @@ cache:
 
 script: 
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react webpack babel-cli babel-istanbul -g
+  - npm install webpack babel-istanbul
   - ls node_modules -la
   - npm run lint
   - npm run test:coverage
