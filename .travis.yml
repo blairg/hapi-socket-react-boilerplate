@@ -12,14 +12,15 @@ env:
     - DOCKER_REPOSITORY=registry.heroku.com
     - DOCKER_DEPLOY_PATH=${DOCKER_REPOSITORY}/hapi-boilerplate-docker/web
 
-install: npm install --verbose
+# install: npm install --verbose
 
 cache:
   directories:
     - "node_modules"
 
 script: 
-  # - npm install
+  - npm install eslint webpack babel-node -g
+  - npm install  --verbose
   - ls -la
   - npm run lint
   - npm run test:coverage
