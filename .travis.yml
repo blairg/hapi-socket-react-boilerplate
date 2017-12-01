@@ -3,6 +3,8 @@ language: node_js
 node_js:
   - "8"
 
+sudo: required
+
 services:
   - docker
 
@@ -12,7 +14,13 @@ env:
     - DOCKER_REPOSITORY=registry.heroku.com
     - DOCKER_DEPLOY_PATH=${DOCKER_REPOSITORY}/hapi-boilerplate-docker/web
 
-# install: npm install --verbose
+before_install:
+  - rm -rf node_modules/
+  - rm -rf /usr/local/lib/node_modules/
+  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react webpack babel-cli babel-istanbul -g
+  - npm install webpack babel-istanbul
+
+install: npm install --verbose
 
 cache:
   directories:
@@ -20,11 +28,11 @@ cache:
     # - "/usr/local/lib/node_modules"
 
 script: 
-  - rm -rf node_modules
-  - rm -rf /usr/local/lib/node_modules
-  - npm install
-  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react webpack babel-cli babel-istanbul -g
-  - npm install webpack babel-istanbul
+  # - rm -rf node_modules/
+  # - rm -rf /usr/local/lib/node_modules/
+  # - npm install
+  # - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react webpack babel-cli babel-istanbul -g
+  # - npm install webpack babel-istanbul
   - ls node_modules -la
   - npm run lint
   - npm run test:coverage
