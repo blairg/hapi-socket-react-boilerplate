@@ -12,11 +12,11 @@
     "socket.io"
   ],
   "scripts": {
-    "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
-    "build:client:prod": "webpack --progress --colors --verbose --config webpack.client.prod.config",
+    "build:client": "./node_modules/.bin/webpack --progress --colors --verbose --config webpack.client.config",
+    "build:client:prod": "./node_modules/.bin/webpack --progress --colors --verbose --config webpack.client.prod.config",
     "build:dev": "export SOCKET_URL=wss://localhost:3000 && export PROD=0 && export HOST=0.0.0.0 && rm -rf ./dist && npm run build:client && npm run build:server",
-    "build:server": "webpack --progress --colors --verbose --config webpack.server.config",
-    "build:watch": "webpack --progress --colors --watch --verbose",
+    "build:server": "./node_modules/.bin/webpack --progress --colors --verbose --config webpack.server.config",
+    "build:watch": "./node_modules/.bin/webpack --progress --colors --watch --verbose",
     "build:prod": "rm -rf ./dist && npm run build:client:prod && npm run build:server",
     "dev": "npm-run-all --parallel build:watch dev:server",
     "dev:server": "NODE_NO_HTTP2=1 nodemon ./dist/server.js",
@@ -25,7 +25,7 @@
     "start": "NODE_NO_HTTP2=1 node ./dist/server.js",
     "test": "mocha -c --require babel-core/register --require babel-polyfill -r jsdom-global/register --recursive",
     "test:watch": "mocha -c -w --require babel-core/register --require babel-polyfill -r jsdom-global/register --recursive",
-    "test:coverage": "babel-node node_modules/.bin/babel-istanbul cover --include-all-sources --root ./src _mocha -- --require babel-polyfill -r jsdom-global/register --recursive"
+    "test:coverage": "./node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover --include-all-sources --root ./src _mocha -- --require babel-polyfill -r jsdom-global/register --recursive"
   },
   "author": "Blair Garrett <blair.garrett1@gmail.com>",
   "license": "ISC",
