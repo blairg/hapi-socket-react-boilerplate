@@ -27,12 +27,15 @@ env:
 before_install:
   - npm i -g npm@latest
 
-install: npm i
+# install: npm i
 
 # cache:
 #   directories:
     # - "node_modules"
-    # - "/usr/local/lib/node_modules"
+    # - "/usr/local/lib/node_module
+
+before_script:
+  - npm install
 
 script: 
   - ls -lah
