@@ -34,13 +34,13 @@ install: npm install --verbose
 script: 
   - rm -rf node_modules
   - rm -rf /usr/local/lib/node_modules
-  - npm cache clean
+  - npm cache clean --force
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli -g
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli --save-dev
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli
-  - npm install webpack babel-istanbul --save-dev
-  - npm install webpack babel-istanbul
-  - npm install webpack babel-istanbul -g
+  - npm install webpack babel-istanbul nyc --save-dev
+  - npm install webpack babel-istanbul nyc
+  - npm install webpack babel-istanbul nyc -g
   - npm install
   - ls -la
   - npm run lint
