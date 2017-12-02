@@ -24,7 +24,7 @@ env:
 #   - npm install webpack babel-istanbul
 #   - npm install webpack babel-istanbul -g
 
-install: npm install --verbose
+install: npm i
 
 # cache:
 #   directories:
@@ -32,22 +32,25 @@ install: npm install --verbose
     # - "/usr/local/lib/node_modules"
 
 script: 
-  - rm -rf node_modules
-  - rm -rf /usr/local/lib/node_modules
-  - npm cache clean --force
-  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli -g
-  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli --save-dev
-  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli
-  - npm install webpack babel-istanbul nyc cross-env --save-dev
-  - npm install webpack babel-istanbul nyc cross-env
-  - npm install webpack babel-istanbul nyc cross-env -g
-  - npm install
-  - ls -la
-  - npm run lint
-  - npm run test:coverage
-  - npm run build:prod
-  # - if [ "$TRAVIS_BRANCH" = "master" ]; then docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
-  # - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}
+  - npm run test
 
-after_success:
-  - cat ./coverage/lcov.info | coveralls
+# script: 
+#   - rm -rf node_modules
+#   - rm -rf /usr/local/lib/node_modules
+#   - npm cache clean --force
+#   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli -g
+#   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli --save-dev
+#   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli
+#   - npm install webpack babel-istanbul nyc cross-env --save-dev
+#   - npm install webpack babel-istanbul nyc cross-env
+#   - npm install webpack babel-istanbul nyc cross-env -g
+#   - npm install
+#   - ls -la
+#   - npm run lint
+#   - npm run test:coverage
+#   - npm run build:prod
+#   # - if [ "$TRAVIS_BRANCH" = "master" ]; then docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
+#   # - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}
+
+# after_success:
+#   - cat ./coverage/lcov.info | coveralls
