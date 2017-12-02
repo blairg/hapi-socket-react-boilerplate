@@ -41,7 +41,8 @@ script:
   - ls -lah\
 
 script: 
-  - npm i mocha --dev
+  - npm i mocha --save-dev
+  - npm run test:coverage
 
 # script: 
 #   - rm -rf node_modules
