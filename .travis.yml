@@ -34,13 +34,16 @@ env:
     # - "node_modules"
     # - "/usr/local/lib/node_module
 
+cache: false
+
 before_script:
-  - rm -rf node_modules
-  - npm install mocha -g
+  - rm -rf node_modules 
+  - npm install -g mocha npm@latest
 
 script: 
+  - cat package.json
   - npm install
-  - ls -lah\
+  - ls node_modules -lah
   - npm test
 
 # script: 
