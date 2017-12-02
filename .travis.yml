@@ -24,6 +24,9 @@ env:
 #   - npm install webpack babel-istanbul
 #   - npm install webpack babel-istanbul -g
 
+before_install:
+  - npm i -g npm@latest
+
 install: npm i
 
 # cache:
