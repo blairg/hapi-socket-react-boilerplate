@@ -3,10 +3,10 @@ language: node_js
 node_js:
   - "8"
 
-sudo: required
+# sudo: required
 
-services:
-  - docker
+# services:
+#   - docker
 
 env:
   global:
@@ -47,7 +47,7 @@ script:
   - npm run test:coverage
   - npm run build:prod
   # - if [ "$TRAVIS_BRANCH" = "master" ]; then docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
-  - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}
+  # - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}
 
 after_success:
   - cat ./coverage/lcov.info | coveralls
