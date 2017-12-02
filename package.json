@@ -17,10 +17,10 @@
   ],
   "scripts": {
     "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
-    "build:client:prod": "NODE_ENV=production webpack -p --progress --colors --verbose --config webpack.client.prod.config",
+    "build:client:prod": "NODE_ENV=production webpack -p --progress --colors --config webpack.client.prod.config",
     "build:dev": "export SOCKET_URL=wss://localhost:3000 && export PROD=0 && export HOST=0.0.0.0 && rm -rf ./dist && npm run build:client && npm run build:server",
     "build:server": "webpack --progress --colors --verbose --config webpack.server.config",
-    "build:server:prod": "NODE_ENV=production webpack -p --progress --colors --verbose --config webpack.server.config",
+    "build:server:prod": "NODE_ENV=production webpack -p --progress --colors --config webpack.server.config",
     "build:watch": "webpack --progress --colors --watch --verbose",
     "build:prod": "rm -rf ./dist && npm run build:client:prod && npm run build:server",
     "dev": "npm-run-all --parallel build:watch dev:server",
