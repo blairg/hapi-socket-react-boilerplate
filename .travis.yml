@@ -38,7 +38,7 @@ cache: false
 
 before_script:
   - rm -rf node_modules 
-  - npm install -g mocha npm@latest babel-core babel-loader
+  - npm install -g mocha npm@latest
 
 script: 
   - npm install
