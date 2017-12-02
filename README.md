@@ -1,8 +1,8 @@
 # hapi-socket-react-boilerplate
 
-Boilerplate app to get you up and running with Hapi, HTTP/2, Web Sockets and React.
-
 [![Build Status](https://travis-ci.org/blairg/hapi-socket-react-boilerplate.svg?branch=master)](https://travis-ci.org/blairg/hapi-socket-react-boilerplate) [![Coverage Status](https://coveralls.io/repos/github/blairg/hapi-socket-react-boilerplate/badge.svg)](https://coveralls.io/github/blairg/hapi-socket-react-boilerplate) [![Known Vulnerabilities](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate/badge.svg)](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate) [![dependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate) [![devDependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/dev-status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate?type=dev)
+
+Boilerplate app to get you up and running with Hapi, HTTP/2, Web Sockets and React.
 
 ## Example Application
 
@@ -14,11 +14,13 @@ Deployed on Heroku. HTTP/2 is not currently supported on Heroku ([supported vers
 
 First step is to clone the repo from Github - [repo](https://github.com/blairg/hapi-socket-react-boilerplate.git).
 
+As this boilerplate expects HTTPS. You will need to create 2 files (key and pem). Then dump them in the `ssl` folder. To create a certificate and key, you can follow a guide [like this](https://devcenter.heroku.com/articles/ssl-certificate-self);
+
 Then you have 2 options, native or with Docker. For both you will need to create a certificate and key for SSL. For Mac, you can do using the following link [Create SSL Certificate on Mac](https://certsimple.com/blog/localhost-ssl-fix). For other platforms, it's a case of Googling if you've not done it before.
 
 ### Natively
 
-Make sure you have Node 8.9 and NPM 5.5.1 at least installed. Or even better you are using NVM.
+Make sure you have Node 8.9.1 and NPM 5.5.1 at least installed. Or even better you are using NVM.
 
 Do the following steps: -
 
@@ -59,7 +61,11 @@ In VS Code, I've created the following debug tasks: -
 * Debug Dev - will only step through the project modules and not node or internal modules.
 * Debug Dev with Modules - includes node and internal modules.
 
+### Issues 
+
+If you find anything wrong with this repo post [them here please](https://github.com/blairg/hapi-socket-react-boilerplate/issues)
+
 ### Useful Links
 
-* [Travis CI -](https://travis-ci.org/blairg/hapi-socket-react-boilerplate)
-* [Coveralls -](https://coveralls.io/github/blairg/hapi-socket-react-boilerplate?branch=master)
+* [Travis CI](https://travis-ci.org/blairg/hapi-socket-react-boilerplate)
+* [Coveralls](https://coveralls.io/github/blairg/hapi-socket-react-boilerplate?branch=master)
