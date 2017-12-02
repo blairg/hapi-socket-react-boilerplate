@@ -24,8 +24,8 @@ env:
 #   - npm install webpack babel-istanbul
 #   - npm install webpack babel-istanbul -g
 
-before_install:
-  - npm i -g npm@latest
+# before_install:
+#   - npm i -g npm@latest
 
 # install: npm i
 
@@ -35,14 +35,17 @@ before_install:
     # - "/usr/local/lib/node_module
 
 before_script:
+  - rm -rf node_modules
+  - npm install mocha -g
+
+script: 
   - npm install
-
-script: 
   - ls -lah\
+  - npm test
 
-script: 
-  - npm i mocha babel-cli --save-dev
-  - npm run test:coverage
+# script: 
+  # - npm i mocha babel-cli --save-dev
+  # - npm run test:coverage
 
 # script: 
 #   - rm -rf node_modules
