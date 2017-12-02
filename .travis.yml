@@ -37,8 +37,8 @@ script:
   # - npm install
   # - npm install babel-core babel-loader babel-register --save-dev
   # # - ls node_modules -lah
-  - npm lint
-  - npm test:coverage
+  - npm run lint
+  - npm run test:coverage
   - export NODE_ENV=production
   - rm -rf node_modules/
   - npm i
