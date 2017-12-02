@@ -42,7 +42,7 @@ script:
   - export NODE_ENV=production
   - rm -rf node_modules/
   - npm i
-  - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} 
+  - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} .
 
 # script: 
   # - npm i mocha babel-cli --save-dev
