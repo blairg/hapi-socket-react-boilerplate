@@ -14,15 +14,15 @@ env:
     - DOCKER_REPOSITORY=registry.heroku.com
     - DOCKER_DEPLOY_PATH=${DOCKER_REPOSITORY}/hapi-boilerplate-docker/web
 
-before_install:
-  - rm -rf node_modules/
-  - rm -rf /usr/local/lib/node_modules/
-  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli -g
-  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli --save-dev
-  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli
-  - npm install webpack babel-istanbul --save-dev
-  - npm install webpack babel-istanbul
-  - npm install webpack babel-istanbul -g
+# before_install:
+#   - rm -rf node_modules/
+#   - rm -rf /usr/local/lib/node_modules/
+#   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli -g
+#   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli --save-dev
+#   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli
+#   - npm install webpack babel-istanbul --save-dev
+#   - npm install webpack babel-istanbul
+#   - npm install webpack babel-istanbul -g
 
 install: npm install --verbose
 
@@ -32,13 +32,16 @@ install: npm install --verbose
     # - "/usr/local/lib/node_modules"
 
 script: 
-  # - rm -rf node_modules/
-  # - rm -rf /usr/local/lib/node_modules/
-  # - npm install
-  # - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react webpack babel-cli babel-istanbul -g
-  # - npm install webpack babel-istanbul
-  - ls node_modules/.bin -la
-  - ls /usr/local/lib/node_modules/ -la
+  - rm -rf node_modules/
+  - rm -rf /usr/local/lib/node_modules/
+  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli -g
+  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli --save-dev
+  - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli
+  - npm install webpack babel-istanbul --save-dev
+  - npm install webpack babel-istanbul
+  - npm install webpack babel-istanbul -g
+  - npm install
+  - ls -la
   - npm run lint
   - npm run test:coverage
   - npm run build:prod
