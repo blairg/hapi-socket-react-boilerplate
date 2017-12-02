@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - "8"
 
-# sudo: required
+sudo: required
 
 # services:
 #   - docker
@@ -38,13 +38,13 @@ cache: false
 
 before_script:
   - rm -rf node_modules 
-  - npm install -g mocha npm@latest
+  - sudo npm install -g mocha npm@latest babel-core babel-loader
 
 script: 
-  - npm install
-  - npm install babel-core babel-loader --save-dev
+  - sudo npm install
+  - sudo npm install babel-core babel-loader --save-dev
   - ls node_modules -lah
-  - npm test
+  - sudo npm test
 
 # script: 
   # - npm i mocha babel-cli --save-dev
