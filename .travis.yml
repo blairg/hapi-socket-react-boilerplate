@@ -23,8 +23,7 @@ cache:
 script: 
   - npm run lint
   - npm run test:coverage
-  - npm run build:client:prod
-  - npm run build:server:prod
+  - npm run build:prod
   - rm -rf node_modules/
   - export NODE_ENV=production
   - npm i

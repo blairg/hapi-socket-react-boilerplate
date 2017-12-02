@@ -22,7 +22,7 @@
     "build:server": "webpack --progress --colors --verbose --config webpack.server.config",
     "build:server:prod": "NODE_ENV=production webpack -p --progress --colors --config webpack.server.config",
     "build:watch": "webpack --progress --colors --watch --verbose",
-    "build:prod": "rm -rf ./dist && npm run build:client:prod && npm run build:server",
+    "build:prod": "rm -rf ./dist && npm run build:client:prod && npm run build:server:prod",
     "dev": "npm-run-all --parallel build:watch dev:server",
     "dev:server": "NODE_NO_HTTP2=1 nodemon ./dist/server.js",
     "dev:debug": "NODE_NO_HTTP2=1 nodemon --nolazy --inspect-brk=5858 -w src --exec \"babel-node src/server/index.js --presets es2015,stage-0,react\"",
