@@ -38,9 +38,9 @@ script:
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli -g
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli --save-dev
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli
-  - npm install webpack babel-istanbul nyc --save-dev
-  - npm install webpack babel-istanbul nyc
-  - npm install webpack babel-istanbul nyc -g
+  - npm install webpack babel-istanbul nyc cross-env --save-dev
+  - npm install webpack babel-istanbul nyc cross-env
+  - npm install webpack babel-istanbul nyc cross-env -g
   - npm install
   - ls -la
   - npm run lint
