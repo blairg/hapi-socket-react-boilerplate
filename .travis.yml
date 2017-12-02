@@ -29,22 +29,20 @@ env:
 
 install: npm i
 
-# cache:
-#   directories:
-    # - "node_modules"
-    # - "/usr/local/lib/node_module
-
-cache: false
-
-# before_script:
-#   - rm -rf node_modules 
-#   - npm install -g mocha npm@latest babel-register
+cache:
+  directories:
+    - "node_modules"
 
 script: 
   # - npm install
   # - npm install babel-core babel-loader babel-register --save-dev
   # # - ls node_modules -lah
-  - npm test
+  - npm lint
+  - npm test:coverage
+  - export NODE_ENV=production
+  - rm -rf node_modules/
+  - npm i
+  - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} 
 
 # script: 
   # - npm i mocha babel-cli --save-dev
@@ -68,5 +66,5 @@ script:
 #   # - if [ "$TRAVIS_BRANCH" = "master" ]; then docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
 #   # - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} . && docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}
 
-# after_success:
-#   - cat ./coverage/lcov.info | coveralls
+after_success:
+  - cat ./coverage/lcov.info | coveralls
