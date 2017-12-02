@@ -26,6 +26,7 @@ script:
   - export NODE_ENV=production
   - rm -rf node_modules/
   - npm i
+  - npm i webpack -g
   - npm run build:prod
   - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} .
   - if [ "$TRAVIS_BRANCH" = "master" ]; then docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
