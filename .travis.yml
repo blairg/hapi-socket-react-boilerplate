@@ -38,8 +38,10 @@ before_script:
   - npm install
 
 script: 
-  - ls -lah
-  - npm run test
+  - ls -lah\
+
+script: 
+  - npm i mocha --dev
 
 # script: 
 #   - rm -rf node_modules
