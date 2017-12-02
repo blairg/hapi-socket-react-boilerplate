@@ -27,7 +27,7 @@ env:
 # before_install:
 #   - npm i -g npm@latest
 
-# install: npm i
+install: npm i
 
 # cache:
 #   directories:
@@ -36,14 +36,14 @@ env:
 
 cache: false
 
-before_script:
-  - rm -rf node_modules 
-  - npm install -g mocha npm@latest babel-register
+# before_script:
+#   - rm -rf node_modules 
+#   - npm install -g mocha npm@latest babel-register
 
 script: 
-  - npm install
-  - npm install babel-core babel-loader babel-register --save-dev
-  # - ls node_modules -lah
+  # - npm install
+  # - npm install babel-core babel-loader babel-register --save-dev
+  # # - ls node_modules -lah
   - npm test
 
 # script: 
