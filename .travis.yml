@@ -38,13 +38,13 @@ cache: false
 
 before_script:
   - rm -rf node_modules 
-  - sudo npm install -g mocha npm@latest babel-core babel-loader
+  - npm install -g mocha npm@latest babel-core babel-loader
 
 script: 
-  - sudo npm install
-  - sudo npm install babel-core babel-loader --save-dev
+  - npm install
+  - npm install babel-core babel-loader --save-dev
   - ls node_modules -lah
-  - sudo npm test
+  - npm test
 
 # script: 
   # - npm i mocha babel-cli --save-dev
