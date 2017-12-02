@@ -41,7 +41,7 @@ script:
   - ls -lah\
 
 script: 
-  - npm i mocha --save-dev
+  - npm i mocha babel-cli --save-dev
   - npm run test:coverage
 
 # script: 
