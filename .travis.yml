@@ -1,12 +1,34 @@
 language: node_js
+
 node_js:
-  - "8"
+  - 8.9.1
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - BASE_DOCKER_IMAGE=node:8.9.1-alpine
+    - DOCKER_REPOSITORY=registry.heroku.com
+    - DOCKER_DEPLOY_PATH=${DOCKER_REPOSITORY}/hapi-boilerplate-docker/web
+
 install: npm i
+
 cache:
   directories:
     - "node_modules"
+
 script: 
   - npm run lint
   - npm run test:coverage
+  - npm run build:prod
+  - rm -rf node_modules/
+  - export NODE_ENV=production
+  - npm i
+  - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} .
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
+
 after_success:
   - cat ./coverage/lcov.info | coveralls

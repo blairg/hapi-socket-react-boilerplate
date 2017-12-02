@@ -1,13 +1,13 @@
-FROM node:8.9.0-alpine
+FROM node:8.9.1-alpine
 
 COPY ./src /usr/app/src
-COPY ./public/css/ /usr/app/public/css
-COPY webpack.config.js package.json package-lock.json /usr/app/
-COPY ./ssl/cert.key ./ssl/cert.pem /usr/app/ssl/
+COPY ./public/ /usr/app/public/
+COPY webpack.client.config.js webpack.client.prod.config.js webpack.server.config.js package.json package-lock.json /usr/app/
+
+COPY ./node_modules/ /usr/app/node_modules/
+COPY ./dist/ /usr/app/dist/
 
 WORKDIR /usr/app
-
-RUN npm i
 
 EXPOSE 3000
 

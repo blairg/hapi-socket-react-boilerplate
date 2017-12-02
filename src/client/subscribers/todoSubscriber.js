@@ -24,7 +24,6 @@ const notifyOfChanges = (message) => {
     // Let's check if the browser supports notifications
   if (!('Notification' in window)) {
     console.log('This browser does not support desktop notification');
-
     return;
   }
 
@@ -46,9 +45,15 @@ const notifyOfChanges = (message) => {
 };
 
 export default function subscribeToTodos(callback) {
-  const client = new Nes.Client('wss://localhost:3000');
+  const client = new Nes.Client(SOCKET_URL);
 
   client.connect((error) => {
+    console.log('connecting ');  
+
+    if (error) {
+      console.error(error);
+    }
+
     const handler = (updates, flags) => {
       if (error) {
         /*eslint-disable */

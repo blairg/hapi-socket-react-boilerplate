@@ -21,23 +21,32 @@ const logToConsole = (type, message) => {
 /*eslint-disable */
 const host = process.env.HOST ? process.env.HOST : 'localhost';
 const port = process.env.PORT ? process.env.PORT : 3000;
-
-// SSL Certificate
-const options = {
-    key: fs.readFileSync(`${process.cwd()}/ssl/cert.key`),
-    cert: fs.readFileSync(`${process.cwd()}/ssl/cert.pem`),
-};
 /* eslint-enable */
 
 // Create a server with a host and port
 const server = new Hapi.Server();
 
-server.connection({
-  listener: Http2.createServer(options),
-  host,
-  port,
-  tls: true,
-});
+if (process.env.PROD !== 0) {
+  /*eslint-disable */
+  // SSL Certificate
+  const options = {
+    key: fs.readFileSync(`${process.cwd()}/ssl/cert.key`),
+    cert: fs.readFileSync(`${process.cwd()}/ssl/cert.pem`),
+  };
+  /* eslint-enable */
+
+  server.connection({
+    listener: Http2.createServer(options),
+    host,
+    port,
+    tls: true,
+  });
+} else {
+  server.connection({
+    host,
+    port,
+  });
+}
 
 // TODO: put in config
 const socketPrefix = 'todos';
