@@ -27,7 +27,7 @@
     "dev:debug": "NODE_NO_HTTP2=1 nodemon --nolazy --inspect-brk=5858 -w src --exec \"babel-node src/server/index.js --presets es2015,stage-0,react\"",
     "lint": "./node_modules/.bin/eslint src/ --fix",
     "start": "NODE_NO_HTTP2=1 node ./dist/server.js",
-    "test": "mocha -c --require babel-core/register --require babel-polyfill -r jsdom-global/register --recursive",
+    "test": "mocha -c --compilers js:babel-core/register --require babel-polyfill -r jsdom-global/register --recursive",
     "test:coverage": "babel-node ./node_modules/.bin/babel-istanbul cover --include-all-sources --root ./src _mocha -- --recursive",
     "test:watch": "mocha -c -w --require babel-core/register --require babel-polyfill -r jsdom-global/register --recursive"
   },
