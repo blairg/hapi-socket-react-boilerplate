@@ -43,7 +43,7 @@ before_script:
 script: 
   - npm install
   - npm install babel-core babel-loader --save-dev
-  - ls node_modules -lah
+  # - ls node_modules -lah
   - npm test
 
 # script: 
