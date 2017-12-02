@@ -25,7 +25,7 @@
     "start": "NODE_NO_HTTP2=1 node ./dist/server.js",
     "test": "mocha -c --require babel-core/register --require babel-polyfill -r jsdom-global/register --recursive",
     "test:watch": "mocha -c -w --require babel-core/register --require babel-polyfill -r jsdom-global/register --recursive",
-    "test:coverage": "babel-node ./node_modules/.bin/babel-istanbul cover --include-all-sources --root ./src _mocha -- --require babel-polyfill -r jsdom-global/register --recursive"
+    "test:coverage": "cross-env NODE_ENV=test nyc -x src/client/subscribers/**.js --reporter=lcov --reporter=text --reporter=html mocha --require babel-polyfill -r jsdom-global/register --compilers js:babel-register test/**/*"
   },
   "author": "Blair Garrett <blair.garrett1@gmail.com>",
   "license": "ISC",
