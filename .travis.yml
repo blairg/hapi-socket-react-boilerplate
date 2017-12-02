@@ -38,10 +38,11 @@ cache: false
 
 before_script:
   - rm -rf node_modules 
-  - npm install -g mocha npm@latest babel-core babel-loader
+  - npm install -g mocha npm@latest
 
 script: 
   - npm install
+  - npm install babel-core babel-loader --save-dev
   - ls node_modules -lah
   - npm test
 
