@@ -32,6 +32,7 @@ install: npm i
     # - "/usr/local/lib/node_modules"
 
 script: 
+  - ls -lah
   - npm run test
 
 # script: 
