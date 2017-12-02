@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "Boilerplate app to get you up and running with Hapi, HTTPS, HTTP/2, Web Socket and React/Redux.",
   "main": "src/server/index.js",
+  "homepage": "https://hapi-boilerplate-docker.herokuapp.com/index",
   "repository": {
     "type": "git",
     "url": "https://github.com/blairg/hapi-socket-react-boilerplate.git"
+  },
+  "bugs" : {
+     "url" : "https://github.com/blairg/hapi-socket-react-boilerplate/issues", 
+     "email" : "blair.garrett1@gmail.com"
   },
   "keywords": [
     "hapi.js",
