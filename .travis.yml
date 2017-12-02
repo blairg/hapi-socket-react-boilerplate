@@ -23,11 +23,12 @@ cache:
 script: 
   - npm run lint
   - npm run test:coverage
-  - export NODE_ENV=production
-  - rm -rf node_modules/
-  - npm i
-  - npm i webpack webpack-merge uglifyjs-webpack-plugin webpack-node-externals -g
-  - npm run build:prod
+  # - export NODE_ENV=production
+  # - rm -rf node_modules/
+  # - npm i
+  # - npm i webpack webpack-merge uglifyjs-webpack-plugin webpack-node-externals -g
+  - npm run build:client:prod
+  - npm run build:server:prod
   - docker build --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} .
   - if [ "$TRAVIS_BRANCH" = "master" ]; then docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
 
