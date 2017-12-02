@@ -8,9 +8,9 @@
     "type": "git",
     "url": "https://github.com/blairg/hapi-socket-react-boilerplate.git"
   },
-  "bugs" : {
-     "url" : "https://github.com/blairg/hapi-socket-react-boilerplate/issues", 
-     "email" : "blair.garrett1@gmail.com"
+  "bugs": {
+    "url": "https://github.com/blairg/hapi-socket-react-boilerplate/issues",
+    "email": "blair.garrett1@gmail.com"
   },
   "keywords": [
     "hapi.js",
@@ -45,7 +45,7 @@
     "axios-mock-adapter": "^1.10.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "^8.0.3",
     "babel-istanbul": "^0.12.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
