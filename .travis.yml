@@ -36,6 +36,7 @@ script:
   # - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react webpack babel-cli babel-istanbul -g
   # - npm install webpack babel-istanbul
   - ls node_modules/.bin -la
+  - ls /usr/local/lib/node_modules/.bin -la
   - npm run lint
   - npm run test:coverage
   - npm run build:prod
