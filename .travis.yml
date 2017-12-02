@@ -18,6 +18,7 @@ before_install:
   - rm -rf node_modules/
   - rm -rf /usr/local/lib/node_modules/
   - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-cli -g
+  - npm install webpack babel-istanbul --save-dev
   - npm install webpack babel-istanbul
   - npm install webpack babel-istanbul -g
 
