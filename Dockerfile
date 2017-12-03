@@ -1,4 +1,8 @@
+ARG PROD
+
 FROM node:8.9.1-alpine
+
+RUN echo ${PROD} && echo "$PROD"
 
 COPY ./src /usr/app/src
 COPY ./public/ /usr/app/public/
