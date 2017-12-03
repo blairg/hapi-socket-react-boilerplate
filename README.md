@@ -14,8 +14,6 @@ Deployed on Heroku. HTTP/2 is not currently supported on Heroku ([supported vers
 
 First step is to clone the repo from Github - [repo](https://github.com/blairg/hapi-socket-react-boilerplate.git).
 
-As this boilerplate expects HTTPS. You will need to create 2 files (key and pem). Then dump them in the `ssl` folder. To create a certificate and key, you can follow a guide [like this](https://devcenter.heroku.com/articles/ssl-certificate-self);
-
 Then you have 2 options, native or with Docker. For both you will need to create a certificate and key for SSL. For Mac, you can do using the following link [Create SSL Certificate on Mac](https://certsimple.com/blog/localhost-ssl-fix). For other platforms, it's a case of Googling if you've not done it before.
 
 ### Natively
