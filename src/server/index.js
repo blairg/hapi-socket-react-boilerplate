@@ -26,9 +26,12 @@ const port = process.env.PORT ? process.env.PORT : 3000;
 // Create a server with a host and port
 const server = new Hapi.Server();
 
-console.log('PROD -> ' + process.env.PROD);
-
-if (process.env.PROD === 0 || process.env.PROD === '0') {
+if ((process.env.PROD) && (process.env.PROD === 1 || process.env.PROD === '1')) {
+  server.connection({
+    host,
+    port,
+  });
+} else {
   /*eslint-disable */
   // SSL Certificate
   const options = {
@@ -42,11 +45,6 @@ if (process.env.PROD === 0 || process.env.PROD === '0') {
     host,
     port,
     tls: true,
-  });
-} else {
-  server.connection({
-    host,
-    port,
   });
 }
 

@@ -1,5 +1,0 @@
-Use SASS for styles.
-
-Sort out docker and travis. Run npm i and webpack inside the container.
-
-Tidy up and improve React components.

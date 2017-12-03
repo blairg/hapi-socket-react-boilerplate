@@ -48,7 +48,7 @@ export default function subscribeToTodos(callback) {
   const client = new Nes.Client(SOCKET_URL);
 
   client.connect((error) => {
-    console.log('connecting ');  
+    console.log('connecting ');
 
     if (error) {
       console.error(error);

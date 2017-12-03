@@ -6,9 +6,13 @@ Boilerplate app to get you up and running with Hapi, HTTP2, Web Socket and React
 
 Demo can be found [here](https://hapi-boilerplate-docker.herokuapp.com/index)
 
-## Get it running locally
+## Project Overview 🤓
 
-Assuming you are on Mac OS. Not tested on any other OS.
+I've written a blog article (TBC) detailing the steps I've gone through to create. Also the good 😇, the bad 👿 and the ugly ☠️.
+
+## Get it running locally 🏌️
+
+Assuming you are on Mac OS 🍏. Not tested on any other OS.
 
 In the terminal run the following: -
 
@@ -18,8 +22,9 @@ In the terminal run the following: -
 * `npm i`
 * `npm run dev`
 * In your browser go to `https://localhost:3000/index` (add security exception rule for local cert)
+* 👏
 
-### With docker
+### With docker 🐳
 
 Ensure you have created the cert and key as per the previous step.
 
@@ -28,7 +33,7 @@ Assuming you have cloned the repo and installed the packages. Also, that you hav
 * `docker-compose up`
 * In your browser go to `https://localhost:3000/index` (add security exception rule for local cert)
 
-## Running tests
+## Running tests 👩‍🔬👨‍🔬
 
 Following options: -
 
@@ -37,10 +42,14 @@ Following options: -
 * To watch tests for changes -> `npm run test:watch`
 * In VS Code you have 2 debug options avaiable for tests. `Mocha Tests` will execute tests. `Mocha Tests with Coverage`, will run tests with coverage.
 
-## Linting
+## Linting 🔍
 
-* Run ESLint with -> `npm run lint`
+* In the terminal run ESLint with -> `npm run lint`
 
-## Issues 
+## Issues 🤒
 
-If you find anything wrong with this repo post [them here please]()
+If you find anything wrong with this repo post them [here please](https://github.com/blairg/hapi-socket-react-boilerplate/issues).
+
+## Todo ✍️
+
+I've left myself some work to do. Look in `todo.md`.
