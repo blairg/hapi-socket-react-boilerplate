@@ -1,7 +1,8 @@
-ARG PROD
+ARG PROD=0
 
 FROM node:8.9.1-alpine
 
+ARG PROD
 RUN echo ${PROD} && echo "$PROD"
 
 COPY ./src /usr/app/src
