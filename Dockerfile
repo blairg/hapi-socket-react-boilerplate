@@ -1,7 +1,6 @@
 FROM node:8.9.1-alpine
 
-ARG PROD
-RUN echo ${PROD} && echo "$PROD" && echo $PROD
+ARG PROD=0
 
 COPY ./src /usr/app/src
 COPY ./public/ /usr/app/public/
