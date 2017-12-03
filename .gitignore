@@ -60,5 +60,6 @@ typings/
 # Boilerplate specific directories
 ssl/*
 !ssl/.gitkeep
+!ssl/createCerts.sh
 public/js/
 dist/
