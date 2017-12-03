@@ -27,7 +27,7 @@ script:
   - rm -rf node_modules/
   - export NODE_ENV=production
   - npm i
-  - docker build --build-arg PROD=${PROD} --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} .
+  - docker build --build-arg PROD=${PROD} --build-arg HOST=${HOST} --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} .
   - if [ "$TRAVIS_BRANCH" = "master" ]; then docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
 
 after_success:
