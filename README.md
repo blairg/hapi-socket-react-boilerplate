@@ -30,6 +30,8 @@ Ensure you have created the cert and key as per the previous step.
 
 Assuming you have cloned the repo and installed the packages. Also, that you have Docker and Docker Compose installed too. In the terminal do the following, in the root of the directory you cloned the repo too: -
 
+* Create certificate for HTTPS `npm run createCertificate`. Details are all optional.
+* Create an `.env` file, this can be blank as the Dockerfile has default values set.
 * `docker-compose up`
 * In your browser go to `https://localhost:3000/index` (add security exception rule for local cert)
 
