@@ -18,7 +18,7 @@ In the terminal run the following: -
 
 * `git clone git@github.com:blairg/hapi-socket-react-boilerplate.git`
 * `cd hapi-socket-react-boilerplate`
-* Create certificate for HTTPS `npm run createCertificate`. Details are all optional.
+* Create certificate for HTTPS `npm run createCertificate`. Fill in the questions when asked. Can be fictitious values.
 * `npm i`
 * `npm run dev`
 * In your browser go to `https://localhost:3000/index` (add security exception rule for local cert)
