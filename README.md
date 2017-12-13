@@ -8,7 +8,7 @@ Demo can be found [here](https://hapi-boilerplate-docker.herokuapp.com/index)
 
 ## Project Overview 🤓
 
-I've written a blog article (TBC) detailing the steps I've gone through to create. Also the good 😇, the bad 👿 and the ugly ☠️.
+I've written a [blog article](http://hackerlite.xyz/2017/12/13/boilerplate-for-hapi-js-web-socket-http-2-react-and-redux/) detailing the steps I've gone through to create. Also the good 😇, the bad 👿 and the ugly ☠️.
 
 ## Get it running locally 🏌️
 
