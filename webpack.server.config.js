@@ -1,8 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
-const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
-module.exports = [ {
+module.exports = [{
   name: 'server',
   target: 'node',
   entry: ['./src/server/index.js'],

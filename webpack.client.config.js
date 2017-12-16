@@ -2,8 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
-
 
 module.exports = (env) => {
   return {
@@ -17,7 +15,7 @@ module.exports = (env) => {
     module: {
       loaders: [
         {
-          test: [/\.js$|.jsx$/], 
+          test: [/\.js$|.jsx$/],
           exclude: [/node_modules/],
           loader: 'babel-loader',
           options: {
@@ -33,7 +31,7 @@ module.exports = (env) => {
     devtool: 'source-map',
     plugins: [
       new webpack.DefinePlugin({
-        SOCKET_URL: JSON.stringify(process.env.SOCKET_URL ? process.env.SOCKET_URL : 'wss://localhost:3000'),
+        SOCKET_URL: JSON.stringify(env.SOCKET_URL ? env.SOCKET_URL : 'wss://localhost:3000'),
       }),
     ],
   };

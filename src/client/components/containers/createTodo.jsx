@@ -8,10 +8,9 @@ import { setTitle, setBody, addPost } from './../../actions';
 class CreateTodo extends React.Component {
   static handleDelete(event) {
     Axios.delete('/todos')
-      .then(() => {
-      })
-      .catch((error) => {
-        console.log(error);
+      .then(() => {})
+      .catch(error => {
+        console.error(error);
       });
 
     event.preventDefault();
@@ -24,18 +23,37 @@ class CreateTodo extends React.Component {
           <div className="row">
             <div className="six columns blogEntriesCreator">
               <h1>Create a Todo</h1>
-
               <div className="row form-field">
-                <label htmlFor="title" className="two columns label--required">Title</label>
+                <label htmlFor="title" className="two columns label--required">
+                  Title
+                </label>
                 <section>
-                  <input id="title" name="title" className="ten columns" required type="text" value={this.props.title} onChange={this.props.titleChange} />
+                  <input
+                    id="title"
+                    name="title"
+                    className="ten columns"
+                    required
+                    type="text"
+                    value={this.props.title}
+                    onChange={this.props.titleChange}
+                  />
                 </section>
               </div>
 
               <div className="row form-field">
-                <label htmlFor="body" className="two columns label--required">Body</label>
+                <label htmlFor="body" className="two columns label--required">
+                  Body
+                </label>
                 <section>
-                  <input id="body" name="body" className="ten columns" required type="text" value={this.props.body} onChange={this.props.bodyChange} />
+                  <input
+                    id="body"
+                    name="body"
+                    className="ten columns"
+                    required
+                    type="text"
+                    value={this.props.body}
+                    onChange={this.props.bodyChange}
+                  />
                 </section>
               </div>
 
@@ -44,8 +62,16 @@ class CreateTodo extends React.Component {
                   type="submit"
                   className="six columns red-button"
                   onClick={CreateTodo.handleDelete}
-                >Delete All</button>
-                <button type="submit" className="six columns button-primary" onClick={this.props.submitPost}>Create</button>
+                >
+                  Delete All
+                </button>
+                <button
+                  type="submit"
+                  className="six columns button-primary"
+                  onClick={this.props.submitPost}
+                >
+                  Create
+                </button>
               </div>
             </div>
             <div className="six columns blogEntriesContainer">
@@ -70,10 +96,10 @@ CreateTodo.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  titleChange: (event) => {
+  titleChange: event => {
     dispatch(setTitle(event.target.value));
   },
-  bodyChange: (event) => {
+  bodyChange: event => {
     dispatch(setBody(event.target.value));
   },
   submitPost: () => {
@@ -81,13 +107,18 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { title, body } = state;
 
   return {
     title,
     body,
   };
+};
+
+CreateTodo.defaultProps = {
+  title: '',
+  body: '',
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateTodo);
