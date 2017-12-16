@@ -14,9 +14,11 @@ class Todos extends React.Component {
     const entriesNew = [];
     let key = 0;
 
-    entries.map((entry) => {
+    entries.map(entry => {
       const updatedEntry = Object.assign({}, entry);
-      updatedEntry.displayDate = calculateTimeDifference(updatedEntry.timestamp);
+      updatedEntry.displayDate = calculateTimeDifference(
+        updatedEntry.timestamp,
+      );
 
       entriesNew.push(<Todo key={key} entry={updatedEntry} />);
       key += 1;
@@ -34,17 +36,19 @@ class Todos extends React.Component {
   }
 
   componentDidMount() {
-    subscribeToTodos(data => this.setState({
-      entries: data,
-    }));
+    subscribeToTodos(data =>
+      this.setState({
+        entries: data,
+      }),
+    );
   }
 
   render() {
-    const entries = Todos.getEntries(this.state.entries ? this.state.entries : this.props.entries);
-
-    return (
-      <CreateTodo entries={entries} />
+    const entries = Todos.getEntries(
+      this.state.entries ? this.state.entries : this.props.entries,
     );
+
+    return <CreateTodo entries={entries} />;
   }
 }
 

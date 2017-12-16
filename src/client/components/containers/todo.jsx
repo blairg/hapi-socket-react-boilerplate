@@ -8,7 +8,7 @@ class Todo extends React.Component {
     super(props);
 
     this.state = {
-      elapsed: (props.entry.displayDate) ? (props.entry.displayDate) : '',
+      elapsed: props.entry.displayDate ? props.entry.displayDate : '',
     };
 
     this.tick = this.tick.bind(this);
@@ -23,7 +23,9 @@ class Todo extends React.Component {
   }
 
   tick() {
-    this.setState({ elapsed: calculateTimeDifference(this.props.entry.timestamp) });
+    this.setState({
+      elapsed: calculateTimeDifference(this.props.entry.timestamp),
+    });
   }
 
   render() {
