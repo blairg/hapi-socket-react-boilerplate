@@ -48,7 +48,12 @@ describe('server/services/cacheService', () => {
       const todo = [{ title: 'my title', body: 'my body' }];
 
       cacheService.set(todo);
-      sinon.assert.calledWith(cache.put, 'hapi-boilerplate-key', JSON.stringify(todo), 60000);
+      sinon.assert.calledWith(
+        cache.put,
+        'hapi-boilerplate-key',
+        JSON.stringify(todo),
+        60000,
+      );
     });
 
     it('should not set the cache when null is passed in', () => {

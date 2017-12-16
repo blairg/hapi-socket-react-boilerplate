@@ -10,8 +10,7 @@ import publicRoute from './../../../src/server/routes/public';
 const sandbox = sinon.sandbox.create();
 
 describe('server/routes/all', () => {
-  beforeEach(() => {
-  });
+  beforeEach(() => {});
 
   afterEach(() => {
     sandbox.restore();

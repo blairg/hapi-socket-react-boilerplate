@@ -12,16 +12,16 @@ const createNotification = (title, options) => {
   setTimeout(notification.close.bind(notification), 2500);
 };
 
-const notifyOfChanges = (message) => {
+const notifyOfChanges = message => {
   const title = message ? message.title : 'All Todos Deleted!';
   const options = {
     body: message ? message.body : '',
-    icon: message ?
-      'https://raw.githubusercontent.com/google/material-design-icons/master/places/2x_web/ic_ac_unit_black_36dp.png' :
-      'https://raw.githubusercontent.com/google/material-design-icons/master/alert/2x_web/ic_add_alert_black_48dp.png',
+    icon: message
+      ? 'https://raw.githubusercontent.com/google/material-design-icons/master/places/2x_web/ic_ac_unit_black_36dp.png'
+      : 'https://raw.githubusercontent.com/google/material-design-icons/master/alert/2x_web/ic_add_alert_black_48dp.png',
   };
 
-    // Let's check if the browser supports notifications
+  // Let's check if the browser supports notifications
   if (!('Notification' in window)) {
     console.log('This browser does not support desktop notification');
     return;
@@ -35,7 +35,7 @@ const notifyOfChanges = (message) => {
 
   // Otherwise, we need to ask the user for permission
   if (Notification.permission !== 'denied') {
-    Notification.requestPermission((permission) => {
+    Notification.requestPermission(permission => {
       // If the user accepts, let's create a notification
       if (permission === 'granted') {
         createNotification(title, options);
@@ -47,7 +47,7 @@ const notifyOfChanges = (message) => {
 export default function subscribeToTodos(callback) {
   const client = new Nes.Client(SOCKET_URL);
 
-  client.connect((error) => {
+  client.connect(error => {
     console.log('connecting ');
 
     if (error) {
@@ -57,36 +57,36 @@ export default function subscribeToTodos(callback) {
     const handler = (updates, flags) => {
       if (error) {
         /*eslint-disable */
-                console.error(error);
-                /* eslint-enable */
+        console.error(error);
+        /* eslint-enable */
       }
 
       if (flags) {
         /*eslint-disable */
-                console.log(flags);
-                /* eslint-enable */
+        console.log(flags);
+        /* eslint-enable */
       }
 
       callback(updates);
       notifyOfChanges(updates[0]);
     };
 
-    client.subscribe(`/${socketPrefix}`, handler, (err) => {
+    client.subscribe(`/${socketPrefix}`, handler, err => {
       if (err) {
         /*eslint-disable */
-                console.log(err);
-                /* eslint-enable */
+        console.log(err);
+        /* eslint-enable */
       }
     });
 
     Axios.get(`/${socketPrefix}`)
-      .then((response) => {
+      .then(response => {
         callback(response.data);
       })
-      .catch((getError) => {
+      .catch(getError => {
         /*eslint-disable */
-                console.log(getError);
-                /* eslint-enable */
+        console.log(getError);
+        /* eslint-enable */
       });
   });
 }

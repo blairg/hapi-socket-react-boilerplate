@@ -26,7 +26,7 @@ const port = process.env.PORT ? process.env.PORT : 3000;
 // Create a server with a host and port
 const server = new Hapi.Server();
 
-if ((process.env.PROD) && (process.env.PROD === 1 || process.env.PROD === '1')) {
+if (process.env.PROD && (process.env.PROD === 1 || process.env.PROD === '1')) {
   server.connection({
     host,
     port,
@@ -52,7 +52,7 @@ if ((process.env.PROD) && (process.env.PROD === 1 || process.env.PROD === '1')) 
 const socketPrefix = 'todos';
 
 // Instrument Hapi.js Server
-server.register(Plugins, (error) => {
+server.register(Plugins, error => {
   if (error) {
     logToConsole('error', error);
   }
@@ -65,7 +65,7 @@ server.register(Plugins, (error) => {
 });
 
 // Start the server
-server.start((err) => {
+server.start(err => {
   if (err) {
     throw err;
   }

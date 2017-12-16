@@ -44,7 +44,7 @@ describe('server/controllers/api', () => {
         const request = {
           payload: todos[0],
           server: {
-            publish: () => { },
+            publish: () => {},
           },
         };
         const reply = () => ({
@@ -65,7 +65,7 @@ describe('server/controllers/api', () => {
         const request = {
           payload: todos[0],
           server: {
-            publish: () => { },
+            publish: () => {},
           },
         };
         const reply = () => ({
@@ -85,7 +85,7 @@ describe('server/controllers/api', () => {
         const request = {
           payload: null,
           server: {
-            publish: () => { },
+            publish: () => {},
           },
         };
         const reply = () => ({
@@ -105,7 +105,7 @@ describe('server/controllers/api', () => {
         const request = {
           payload: null,
           server: {
-            publish: () => { },
+            publish: () => {},
           },
         };
         const reply = () => ({

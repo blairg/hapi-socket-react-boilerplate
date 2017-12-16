@@ -1,9 +1,10 @@
 import Moment from 'moment';
 
-const timeRangeMessage = (value, label) => `${Math.round(value)} ${label}${(value === 1) ? '' : 's'} ago`;
+const timeRangeMessage = (value, label) =>
+  `${Math.round(value)} ${label}${value === 1 ? '' : 's'} ago`;
 
-const calculateSeconds = (timeDifference) => {
-  const seconds = (timeDifference < 1) ? 1 : timeDifference;
+const calculateSeconds = timeDifference => {
+  const seconds = timeDifference < 1 ? 1 : timeDifference;
 
   return timeRangeMessage(seconds, 'second');
 };
@@ -24,12 +25,29 @@ export default function calculateTimeDifference(todoDate) {
   const timeNow = parseInt(Moment().unix(), 10);
   const timeDifference = timeNow - todoDate;
 
-  if (timeDifference < minuteInSeconds) return calculateSeconds(timeDifference);
-  if (timeDifference < hourInSeconds) return messageToDisplay(timeDifference, minuteInSeconds, 'minute');
-  if (timeDifference < dayInSeconds) return messageToDisplay(timeDifference, hourInSeconds, 'hour');
-  if (timeDifference < weekInSeconds) return messageToDisplay(timeDifference, dayInSeconds, 'day');
-  if (timeDifference < monthInSeconds) return messageToDisplay(timeDifference, weekInSeconds, 'week');
-  if (timeDifference < yearInSeconds) return messageToDisplay(timeDifference, monthInSeconds, 'month');
+  if (timeDifference < minuteInSeconds) {
+    return calculateSeconds(timeDifference);
+  }
+
+  if (timeDifference < hourInSeconds) {
+    return messageToDisplay(timeDifference, minuteInSeconds, 'minute');
+  }
+
+  if (timeDifference < dayInSeconds) {
+    return messageToDisplay(timeDifference, hourInSeconds, 'hour');
+  }
+
+  if (timeDifference < weekInSeconds) {
+    return messageToDisplay(timeDifference, dayInSeconds, 'day');
+  }
+
+  if (timeDifference < monthInSeconds) {
+    return messageToDisplay(timeDifference, weekInSeconds, 'week');
+  }
+
+  if (timeDifference < yearInSeconds) {
+    return messageToDisplay(timeDifference, monthInSeconds, 'month');
+  }
 
   return messageToDisplay(timeDifference, yearInSeconds, 'year');
 }
