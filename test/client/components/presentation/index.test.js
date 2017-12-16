@@ -22,16 +22,18 @@ const sandbox = sinon.sandbox.create();
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('client/components/presentation/index -> <Index todos={todos} />', () => {
-  beforeEach(() => {
-  });
-
+  beforeEach(() => {});
   afterEach(() => {
     sandbox.restore();
   });
 
   it('should contain body and title in the Index component', () => {
     const todo = { title: 'my title', body: 'my body' };
-    const todosComponent = <Provider store={store}><Todos entries={[todo]} /></Provider>;
+    const todosComponent = (
+      <Provider store={store}>
+        <Todos entries={[todo]} />
+      </Provider>
+    );
     const wrapper = Enzyme.shallow(<Index todos={todosComponent} />);
 
     assert.equal(wrapper.html().includes(todo.title), true);

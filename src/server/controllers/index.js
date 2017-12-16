@@ -1,5 +1,3 @@
-/* eslint-disable import/extensions */
-
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
@@ -18,9 +16,9 @@ import Index from './../../client/components/presentation/index.jsx';
 
 const loggerMiddleware = createLogger();
 /*eslint-disable */
-const store = createStore(rootReducer, applyMiddleware(
-  thunkMiddleware,
-  loggerMiddleware)
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunkMiddleware, loggerMiddleware),
 );
 /* eslint-enable */
 
@@ -33,11 +31,17 @@ export default {
       const todos = cacheService.get();
 
       /* eslint-disable react/jsx-filename-extension */
-      const reduxStore = <Provider store={store}><Todos entries={todos} /></Provider>;
+      const reduxStore = (
+        <Provider store={store}>
+          <Todos entries={todos} />
+        </Provider>
+      );
       const todoComponent = ReactDOMServer.renderToString(reduxStore);
       const indexComponent = <Index todos={todoComponent} />;
 
-      let indexPage = DecodeHtml(ReactDOMServer.renderToStaticMarkup(indexComponent));
+      let indexPage = DecodeHtml(
+        ReactDOMServer.renderToStaticMarkup(indexComponent),
+      );
       indexPage = indexPage.replace(/&quot;/gi, '"');
 
       return reply(indexPage).code(HttpStatus.OK);

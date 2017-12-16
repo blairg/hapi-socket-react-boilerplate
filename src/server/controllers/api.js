@@ -5,7 +5,8 @@ import CacheServiceImport from './../services/cacheService';
 const cacheService = CacheServiceImport();
 const socketPrefix = 'todos';
 
-const badRequestResponse = reply => reply({ 'bad request': 'false' }).code(HttpStatus.BAD_REQUEST);
+const badRequestResponse = reply =>
+  reply({ 'bad request': 'false' }).code(HttpStatus.BAD_REQUEST);
 
 // TODO: Convert to a class
 export default {

@@ -6,7 +6,11 @@ import Axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 import * as actionTypes from './../../../src/client/actionTypes';
-import { setTitle, setBody, addPost } from './../../../src/client/actions/index';
+import {
+  setTitle,
+  setBody,
+  addPost,
+} from './../../../src/client/actions/index';
 
 const sandbox = sinon.sandbox.create();
 let mockAxios;
@@ -56,19 +60,16 @@ describe('client/actions/index', () => {
           body: post.body,
         },
       };
-      const getState = () => (initialState);
+      const getState = () => initialState;
       const dispatch = sandbox.spy();
 
       mockAxios.onPost('/todos', post).reply(200, post);
       await addPost()(dispatch, getState);
 
-      sinon.assert.calledWith(
-        dispatch,
-        {
-          type: actionTypes.ADD_POST,
-          payload: post,
-        },
-      );
+      sinon.assert.calledWith(dispatch, {
+        type: actionTypes.ADD_POST,
+        payload: post,
+      });
     });
 
     it('should not dispatch action as post request failed', async () => {
@@ -81,7 +82,7 @@ describe('client/actions/index', () => {
           body: post.body,
         },
       };
-      const getState = () => (initialState);
+      const getState = () => initialState;
       const dispatch = sandbox.spy();
 
       mockAxios.onPost('/todos', post).reply(500);

@@ -10,8 +10,7 @@ import plugins from './../../../src/server/plugins/index';
 const sandbox = sinon.sandbox.create();
 
 describe('server/plugins/index', () => {
-  beforeEach(() => {
-  });
+  beforeEach(() => {});
 
   afterEach(() => {
     sandbox.restore();
