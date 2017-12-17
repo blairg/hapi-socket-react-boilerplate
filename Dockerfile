@@ -1,4 +1,5 @@
 FROM node:8.9.1-alpine
+MAINTAINER <Blair Garrett>
 LABEL maintainer="blair.garrett1@gmail.com"
 
 ARG PROD=0

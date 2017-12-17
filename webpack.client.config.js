@@ -1,4 +1,6 @@
-/* eslint-disable */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-unused-vars */
 
 const path = require('path');
 const webpack = require('webpack');
@@ -31,7 +33,7 @@ module.exports = (env) => {
     devtool: 'source-map',
     plugins: [
       new webpack.DefinePlugin({
-        SOCKET_URL: JSON.stringify(env.SOCKET_URL ? env.SOCKET_URL : 'wss://localhost:3000'),
+        SOCKET_URL: JSON.stringify(process.env.SOCKET_URL ? process.env.SOCKET_URL : 'wss://localhost:3000'),
       }),
     ],
   };
