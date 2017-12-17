@@ -9,13 +9,11 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Todos from './../../../../src/client/components/presentation/todos.jsx';
+import Todos from './../../../../src/client/components/containers/todos.jsx';
 import Index from './../../../../src/client/components/presentation/index.jsx';
 
 const middlewares = [];
 const mockStore = configureStore(middlewares);
-const initialState = {};
-const store = mockStore(initialState);
 
 const sandbox = sinon.sandbox.create();
 
@@ -29,6 +27,10 @@ describe('client/components/presentation/index -> <Index todos={todos} />', () =
 
   it('should contain body and title in the Index component', () => {
     const todo = { title: 'my title', body: 'my body' };
+
+    const initialState = { setTodos: { todos: [todo] } };
+    const store = mockStore(initialState);
+
     const todosComponent = (
       <Provider store={store}>
         <Todos entries={[todo]} />

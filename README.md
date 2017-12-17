@@ -13,7 +13,7 @@ I've written a [blog article](http://hackerlite.xyz/2017/12/13/boilerplate-for-h
 
 ## Get it running locally 🏌️
 
-Assuming you are on Mac OS 🍏. Not tested on any other OS.
+Assuming you are on Mac OS 🍏 and Node 8.9.3 or higher installed. Not tested on any other OS.
 
 In the terminal run the following: -
 
@@ -48,6 +48,10 @@ Following options: -
 ## Linting 🔍
 
 * In the terminal run ESLint with -> `npm run lint`
+
+## Prettier 🙏
+
+* In the terminal run Prettier with -> `npm run pretty`
 
 ## Issues 🤒
 

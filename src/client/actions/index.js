@@ -33,3 +33,10 @@ export function addPost() {
     }
   };
 }
+
+export function setTodos(todos) {
+  return {
+    type: actionTypes.SET_TODOS,
+    todos,
+  };
+}
