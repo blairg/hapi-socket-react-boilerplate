@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable react/require-default-props */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -116,11 +117,6 @@ const mapStateToProps = state => {
     title,
     body,
   };
-};
-
-CreateTodo.defaultProps = {
-  title: '',
-  body: '',
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateTodo);
