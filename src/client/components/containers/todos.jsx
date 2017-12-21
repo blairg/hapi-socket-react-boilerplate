@@ -31,9 +31,7 @@ class Todos extends React.Component {
   /* istanbul ignore next */
   componentDidMount() {
     /* istanbul ignore next */
-    subscribeToTodos(data =>
-      this.props.dispatchTodos(data),
-    );
+    subscribeToTodos(data => this.props.dispatchTodos(data));
   }
 
   render() {
