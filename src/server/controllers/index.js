@@ -11,7 +11,7 @@ import rootReducer from './../../client/reducers';
 import CacheServiceImport from './../services/cacheService';
 
 // React Components
-import Todos from './../../client/components/presentation/todos.jsx';
+import Todos from './../../client/components/containers/todos.jsx';
 import Index from './../../client/components/presentation/index.jsx';
 
 const loggerMiddleware = createLogger();

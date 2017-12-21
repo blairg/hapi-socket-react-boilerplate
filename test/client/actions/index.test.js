@@ -10,6 +10,7 @@ import {
   setTitle,
   setBody,
   addPost,
+  setTodos,
 } from './../../../src/client/actions/index';
 
 const sandbox = sinon.sandbox.create();
@@ -89,6 +90,18 @@ describe('client/actions/index', () => {
       await addPost()(dispatch, getState);
 
       sinon.assert.notCalled(dispatch);
+    });
+  });
+
+  describe('setTodos', () => {
+    it('should create an action to set todos', () => {
+      const todos = { title: 'my title', body: 'my body', timestamp: 2131231 };
+      const expected = {
+        type: actionTypes.SET_TODOS,
+        todos,
+      };
+
+      assert.deepEqual(setTodos(todos), expected);
     });
   });
 });

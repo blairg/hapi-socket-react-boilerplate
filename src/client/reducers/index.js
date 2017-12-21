@@ -28,10 +28,20 @@ export function addPost(state = { post: { title: '', body: '' } }, action) {
   }
 }
 
+export function setTodos(state = { todos: [] }, action) {
+  switch (action.type) {
+    case actionTypes.SET_TODOS:
+      return { ...state, todos: action.todos };
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   setTitle,
   setBody,
   addPost,
+  setTodos,
 });
 
 export default rootReducer;

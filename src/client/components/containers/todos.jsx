@@ -1,9 +1,8 @@
-/* eslint-disable import/extensions */
-/* eslint-disable react/forbid-prop-types */
-
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { setTodos } from './../../actions';
 import subscribeToTodos from '../../subscribers/todoSubscriber';
 import CreateTodo from '../containers/createTodo.jsx';
 import Todo from '../containers/todo.jsx';
@@ -28,32 +27,36 @@ class Todos extends React.Component {
 
     return entriesNew;
   }
-  constructor(props) {
-    super(props);
-    this.state = {
-      entries: props.entries ? props.entries : [],
-    };
-  }
 
+  /* istanbul ignore next */
   componentDidMount() {
-    subscribeToTodos(data =>
-      this.setState({
-        entries: data,
-      }),
-    );
+    /* istanbul ignore next */
+    subscribeToTodos(data => this.props.dispatchTodos(data));
   }
 
   render() {
-    const entries = Todos.getEntries(
-      this.state.entries ? this.state.entries : this.props.entries,
-    );
-
-    return <CreateTodo entries={entries} />;
+    return <CreateTodo entries={Todos.getEntries(this.props.entries)} />;
   }
 }
 
 Todos.propTypes = {
   entries: PropTypes.array.isRequired,
+  dispatchTodos: PropTypes.func.isRequired,
 };
 
-export default Todos;
+/* istanbul ignore next */
+const mapDispatchToProps = dispatch => ({
+  dispatchTodos: todos => {
+    dispatch(setTodos(todos));
+  },
+});
+
+const mapStateToProps = state => {
+  const { todos } = state.setTodos;
+
+  return {
+    entries: todos,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todos);
