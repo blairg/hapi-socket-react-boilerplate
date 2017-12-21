@@ -4,20 +4,21 @@
 
 import assert from 'assert';
 import sinon from 'sinon';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import Axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+
 import CreateTodo from './../../../../src/client/components/containers/createTodo.jsx';
 
 const sandbox = sinon.sandbox.create();
 let mockAxios;
 
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('client/components/containers/createTodo -> <CreateTodo />', () => {
+  const event = { preventDefault: () => {} };
+
   beforeEach(() => {
     mockAxios = new MockAdapter(Axios);
+    sandbox.stub(event, 'preventDefault');
+    sandbox.stub(console, 'error');
   });
 
   afterEach(() => {
@@ -25,26 +26,21 @@ describe('client/components/containers/createTodo -> <CreateTodo />', () => {
     sandbox.restore();
   });
 
-  it('should call Axios.delete and event.preventDefault()', () => {
-    const event = { preventDefault: () => {} };
+  describe('CreateTodo.handleDelete(event)', () => {
+    it('should call Axios.delete and event.preventDefault()', async () => {
+      mockAxios.onDelete('/todos').reply(200);
+      const success = await CreateTodo.handleDelete(event);
 
-    sandbox.stub(event, 'preventDefault');
-    mockAxios.onDelete('/todos').reply(200);
+      assert.equal(event.preventDefault.called, true);
+      assert.equal(success, true);
+    });
 
-    CreateTodo.handleDelete(event);
+    it('should call Axios.delete and throw error', async () => {
+      mockAxios.onDelete('/todos').networkError();
+      const success = await CreateTodo.handleDelete(event);
 
-    assert.equal(event.preventDefault.called, true);
-  });
-
-  it('should call Axios.delete and throw error', () => {
-    const event = { preventDefault: () => {} };
-
-    sinon.stub(console, 'error');
-    sandbox.stub(event, 'preventDefault');
-    mockAxios.onDelete('/todos').networkError();
-
-    CreateTodo.handleDelete(event);
-
-    assert.equal(event.preventDefault.called, true);
+      assert.equal(event.preventDefault.called, true);
+      assert.equal(success, false);
+    });
   });
 });

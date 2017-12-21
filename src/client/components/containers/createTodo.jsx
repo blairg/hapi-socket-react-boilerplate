@@ -1,6 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable react/require-default-props */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -9,14 +6,19 @@ import Axios from 'axios';
 import { setTitle, setBody, addPost } from './../../actions';
 
 class CreateTodo extends React.Component {
-  static handleDelete(event) {
-    Axios.delete('/todos')
+  static async handleDelete(event) {
+    let success = true;
+
+    await Axios.delete('/todos')
       .then(() => {})
       .catch(error => {
+        success = false;
         console.error(error);
       });
 
     event.preventDefault();
+
+    return success;
   }
 
   render() {
@@ -98,6 +100,7 @@ CreateTodo.propTypes = {
   body: PropTypes.string,
 };
 
+/* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
   titleChange: event => {
     dispatch(setTitle(event.target.value));

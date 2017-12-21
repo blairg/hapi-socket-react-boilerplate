@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "pre-commit hook"
+
+echo "running -> npm test"
+# Run tests
+npm test
+
+echo "running -> npm run pretty"
+# Run prettier before committing
+npm run pretty

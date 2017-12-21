@@ -12,7 +12,7 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import rootReducer from './reducers';
 
-import Todos from './components/presentation/todos.jsx';
+import Todos from './components/containers/todos.jsx';
 
 import CacheService from './services/cacheService';
 

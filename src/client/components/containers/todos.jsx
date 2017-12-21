@@ -1,6 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable react/forbid-prop-types */
-
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -31,7 +28,9 @@ class Todos extends React.Component {
     return entriesNew;
   }
 
+  /* istanbul ignore next */
   componentDidMount() {
+    /* istanbul ignore next */
     subscribeToTodos(data =>
       this.props.dispatchTodos(data),
     );
@@ -47,6 +46,7 @@ Todos.propTypes = {
   dispatchTodos: PropTypes.func.isRequired,
 };
 
+/* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
   dispatchTodos: todos => {
     dispatch(setTodos(todos));

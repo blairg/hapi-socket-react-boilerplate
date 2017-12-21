@@ -14,6 +14,7 @@ class Todo extends React.Component {
     this.tick = this.tick.bind(this);
   }
 
+  /* istanbul ignore next */
   componentDidMount() {
     this.timer = setInterval(this.tick, 1000);
   }
