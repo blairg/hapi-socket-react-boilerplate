@@ -21,7 +21,7 @@ describe('server/controllers/api', () => {
 
   describe('server/controllers/api', () => {
     describe('get/handler', () => {
-      it('should return a list of todos', () => {
+      test('should return a list of todos', () => {
         const todos = [{ title: 'my title', body: 'my body' }];
         const reply = () => ({
           code: () => HttpStatus.OK,
@@ -39,7 +39,7 @@ describe('server/controllers/api', () => {
     });
 
     describe('add/handler', () => {
-      it('should add to data store and return a 201 response', () => {
+      test('should add to data store and return a 201 response', () => {
         const todos = [{ title: 'my title', body: 'my body' }];
         const request = {
           payload: todos[0],
@@ -60,28 +60,31 @@ describe('server/controllers/api', () => {
         sinon.assert.calledWith(replySpy, { created: 'OK' });
       });
 
-      it('should add to data store if data store is empty and return a 201 response', () => {
-        const todos = [{ title: 'my title', body: 'my body' }];
-        const request = {
-          payload: todos[0],
-          server: {
-            publish: () => {},
-          },
-        };
-        const reply = () => ({
-          code: () => HttpStatus.CREATED,
-        });
+      test(
+        'should add to data store if data store is empty and return a 201 response',
+        () => {
+          const todos = [{ title: 'my title', body: 'my body' }];
+          const request = {
+            payload: todos[0],
+            server: {
+              publish: () => {},
+            },
+          };
+          const reply = () => ({
+            code: () => HttpStatus.CREATED,
+          });
 
-        momentProto.unix.returns(100);
-        cache.get.returns(null);
-        const replySpy = sandbox.spy(reply);
+          momentProto.unix.returns(100);
+          cache.get.returns(null);
+          const replySpy = sandbox.spy(reply);
 
-        ApiController.add.handler(request, replySpy);
+          ApiController.add.handler(request, replySpy);
 
-        sinon.assert.calledWith(replySpy, { created: 'OK' });
-      });
+          sinon.assert.calledWith(replySpy, { created: 'OK' });
+        }
+      );
 
-      it('should not add to data store and return a bad request', () => {
+      test('should not add to data store and return a bad request', () => {
         const request = {
           payload: null,
           server: {
@@ -101,7 +104,7 @@ describe('server/controllers/api', () => {
     });
 
     describe('delete/handler', () => {
-      it('should delete todos and return status of 205', () => {
+      test('should delete todos and return status of 205', () => {
         const request = {
           payload: null,
           server: {

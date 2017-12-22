@@ -18,7 +18,7 @@ describe('server/services/cacheService', () => {
       sandbox.restore();
     });
 
-    it('should return the value when it exists in the cache', () => {
+    test('should return the value when it exists in the cache', () => {
       const todo = [{ title: 'my title', body: 'my body' }];
       const todoJsonStringed = JSON.stringify(todo);
       cache.get.returns(todoJsonStringed);
@@ -27,7 +27,7 @@ describe('server/services/cacheService', () => {
       sinon.assert.calledWith(cache.get, 'hapi-boilerplate-key');
     });
 
-    it('should return an empty array when cache is empty', () => {
+    test('should return an empty array when cache is empty', () => {
       cache.get.returns(null);
 
       assert.deepEqual(cacheService.get('my value'), []);
@@ -44,7 +44,7 @@ describe('server/services/cacheService', () => {
       sandbox.restore();
     });
 
-    it('should set the cache when a non-null is passed in', () => {
+    test('should set the cache when a non-null is passed in', () => {
       const todo = [{ title: 'my title', body: 'my body' }];
 
       cacheService.set(todo);
@@ -56,7 +56,7 @@ describe('server/services/cacheService', () => {
       );
     });
 
-    it('should not set the cache when null is passed in', () => {
+    test('should not set the cache when null is passed in', () => {
       cacheService.set(undefined);
       sinon.assert.notCalled(cache.put);
     });

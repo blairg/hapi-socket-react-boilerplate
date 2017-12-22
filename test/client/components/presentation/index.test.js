@@ -25,7 +25,7 @@ describe('client/components/presentation/index -> <Index todos={todos} />', () =
     sandbox.restore();
   });
 
-  it('should contain body and title in the Index component', () => {
+  test('should contain body and title in the Index component', () => {
     const todo = { title: 'my title', body: 'my body' };
 
     const initialState = { setTodos: { todos: [todo] } };

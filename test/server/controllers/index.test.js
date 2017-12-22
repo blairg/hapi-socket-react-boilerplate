@@ -17,7 +17,7 @@ describe('server/controllers/index', () => {
   });
 
   describe('server/controllers/index', () => {
-    it('should return a SSR Index component', () => {
+    test('should return a SSR Index component', () => {
       const todos = JSON.stringify([{ title: 'my title', body: 'my body' }]);
       const reply = () => ({
         code: () => HttpStatus.OK,
@@ -33,7 +33,7 @@ describe('server/controllers/index', () => {
       sinon.assert.calledOnce(replySpy);
     });
 
-    it('should return a SSR Index component even for no previous todos', () => {
+    test('should return a SSR Index component even for no previous todos', () => {
       const todos = null;
       const reply = () => ({
         code: () => HttpStatus.OK,

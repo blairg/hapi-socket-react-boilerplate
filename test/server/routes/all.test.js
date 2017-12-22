@@ -16,15 +16,15 @@ describe('server/routes/all', () => {
     sandbox.restore();
   });
 
-  it('should return Api route', () => {
+  test('should return Api route', () => {
     assert.equal(allRoutes.Api, apiRoute);
   });
 
-  it('should return Index route', () => {
+  test('should return Index route', () => {
     assert.equal(allRoutes.Index, indexRoute);
   });
 
-  it('should return Public route', () => {
+  test('should return Public route', () => {
     assert.equal(allRoutes.Public, publicRoute);
   });
 });

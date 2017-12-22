@@ -19,7 +19,7 @@ describe('client/services/cacheService', () => {
   });
 
   describe('getTodos', () => {
-    it('should call the callback with the correct arguments', async () => {
+    test('should call the callback with the correct arguments', async () => {
       const todo = { title: 'my title', body: 'my body' };
       const callback = sinon.spy();
 
@@ -30,7 +30,7 @@ describe('client/services/cacheService', () => {
       sinon.assert.calledWith(callback, todo, null);
     });
 
-    it('should call the callback with an error status of 500', async () => {
+    test('should call the callback with an error status of 500', async () => {
       const callback = sinon.spy();
 
       mockAxios.onGet('/todos').reply(500);
