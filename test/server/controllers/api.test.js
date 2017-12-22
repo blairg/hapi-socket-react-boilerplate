@@ -60,29 +60,26 @@ describe('server/controllers/api', () => {
         sinon.assert.calledWith(replySpy, { created: 'OK' });
       });
 
-      test(
-        'should add to data store if data store is empty and return a 201 response',
-        () => {
-          const todos = [{ title: 'my title', body: 'my body' }];
-          const request = {
-            payload: todos[0],
-            server: {
-              publish: () => {},
-            },
-          };
-          const reply = () => ({
-            code: () => HttpStatus.CREATED,
-          });
+      test('should add to data store if data store is empty and return a 201 response', () => {
+        const todos = [{ title: 'my title', body: 'my body' }];
+        const request = {
+          payload: todos[0],
+          server: {
+            publish: () => {},
+          },
+        };
+        const reply = () => ({
+          code: () => HttpStatus.CREATED,
+        });
 
-          momentProto.unix.returns(100);
-          cache.get.returns(null);
-          const replySpy = sandbox.spy(reply);
+        momentProto.unix.returns(100);
+        cache.get.returns(null);
+        const replySpy = sandbox.spy(reply);
 
-          ApiController.add.handler(request, replySpy);
+        ApiController.add.handler(request, replySpy);
 
-          sinon.assert.calledWith(replySpy, { created: 'OK' });
-        }
-      );
+        sinon.assert.calledWith(replySpy, { created: 'OK' });
+      });
 
       test('should not add to data store and return a bad request', () => {
         const request = {

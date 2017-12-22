@@ -16,45 +16,33 @@ describe('shared/helpers/formatTime', () => {
     sandbox.restore();
   });
 
-  test(
-    'should return "1 second ago" when the date passed in is the same as the current time',
-    () => {
-      const todoDate = 100;
-      momentProto.unix.returns(100);
+  test('should return "1 second ago" when the date passed in is the same as the current time', () => {
+    const todoDate = 100;
+    momentProto.unix.returns(100);
 
-      assert.equal(calculateTimeDifference(todoDate), '1 second ago');
-    }
-  );
+    assert.equal(calculateTimeDifference(todoDate), '1 second ago');
+  });
 
-  test(
-    'should return "5 seconds ago" when the date is 5 seconds in the past',
-    () => {
-      const todoDate = 100;
-      momentProto.unix.returns(105);
+  test('should return "5 seconds ago" when the date is 5 seconds in the past', () => {
+    const todoDate = 100;
+    momentProto.unix.returns(105);
 
-      assert.equal(calculateTimeDifference(todoDate), '5 seconds ago');
-    }
-  );
+    assert.equal(calculateTimeDifference(todoDate), '5 seconds ago');
+  });
 
-  test(
-    'should return "1 minute ago" when the date is 1 minute in the past',
-    () => {
-      const todoDate = 100;
-      momentProto.unix.returns(160);
+  test('should return "1 minute ago" when the date is 1 minute in the past', () => {
+    const todoDate = 100;
+    momentProto.unix.returns(160);
 
-      assert.equal(calculateTimeDifference(todoDate), '1 minute ago');
-    }
-  );
+    assert.equal(calculateTimeDifference(todoDate), '1 minute ago');
+  });
 
-  test(
-    'should return "10 minutes ago" when the date is 10 minutes in the past',
-    () => {
-      const todoDate = 100;
-      momentProto.unix.returns(671);
+  test('should return "10 minutes ago" when the date is 10 minutes in the past', () => {
+    const todoDate = 100;
+    momentProto.unix.returns(671);
 
-      assert.equal(calculateTimeDifference(todoDate), '10 minutes ago');
-    }
-  );
+    assert.equal(calculateTimeDifference(todoDate), '10 minutes ago');
+  });
 
   test('should return "1 hour ago" when the date is 1 hour in the past', () => {
     const todoDate = 100;
@@ -63,15 +51,12 @@ describe('shared/helpers/formatTime', () => {
     assert.equal(calculateTimeDifference(todoDate), '1 hour ago');
   });
 
-  test(
-    'should return "3 hours ago" when the date is 3 hours in the past',
-    () => {
-      const todoDate = 100;
-      momentProto.unix.returns(10180);
+  test('should return "3 hours ago" when the date is 3 hours in the past', () => {
+    const todoDate = 100;
+    momentProto.unix.returns(10180);
 
-      assert.equal(calculateTimeDifference(todoDate), '3 hours ago');
-    }
-  );
+    assert.equal(calculateTimeDifference(todoDate), '3 hours ago');
+  });
 
   test('should return "1 day ago" when the date is 1 day in the past', () => {
     const todoDate = 100;
@@ -94,15 +79,12 @@ describe('shared/helpers/formatTime', () => {
     assert.equal(calculateTimeDifference(todoDate), '1 week ago');
   });
 
-  test(
-    'should return "1 month ago" when the date is 28 days in the past',
-    () => {
-      const todoDate = 100;
-      momentProto.unix.returns(2419300);
+  test('should return "1 month ago" when the date is 28 days in the past', () => {
+    const todoDate = 100;
+    momentProto.unix.returns(2419300);
 
-      assert.equal(calculateTimeDifference(todoDate), '1 month ago');
-    }
-  );
+    assert.equal(calculateTimeDifference(todoDate), '1 month ago');
+  });
 
   test('should return "1 year ago" when the date is 1 year in the past', () => {
     const todoDate = 100;
