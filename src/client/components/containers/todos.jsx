@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import { setTodos } from './../../actions';
 import subscribeToTodos from '../../subscribers/todoSubscriber';
-import { CreateTodo } from '../containers/createTodo.jsx';
+import CreateTodo from '../containers/createTodo.jsx';
 import Todo from '../containers/todo.jsx';
 import calculateTimeDifference from './../../../shared/helpers/timeHelper';
 
-export class Todos extends React.Component {
+class Todos extends React.Component {
   static getEntries(entries) {
     const entriesNew = [];
     let key = 0;

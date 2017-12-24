@@ -6,8 +6,18 @@ import React from 'react';
 import Axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-import { CreateTodo } from './../../../../src/client/components/containers/createTodo.jsx';
+import CreateTodo from './../../../../src/client/components/containers/createTodo.jsx';
+
+const middlewares = [];
+const mockStore = configureStore(middlewares);
+const todo = { title: 'my title', body: 'my body' };
+const initialState = { setTodos: { todos: [todo] } };
+const store = mockStore(initialState);
 
 let mockAxios;
 
@@ -43,7 +53,7 @@ describe('client/components/containers/createTodo -> <CreateTodo />', () => {
 
   describe('<CreateTodo />', () => {
     test('should render correctly', () => {
-      const tree = renderer.create(<CreateTodo />).toJSON();
+      const tree = renderer.create(<CreateTodo store={store} />).toJSON();
 
       expect(tree).toMatchSnapshot();
     });

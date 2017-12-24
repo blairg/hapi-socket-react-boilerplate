@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `client/components/containers/createTodo -> <CreateTodo /> <CreateTodo /> should render correctly 1`
-] = `
+exports[`client/components/containers/createTodo -> <CreateTodo /> <CreateTodo /> should render correctly 1`] = `
 <main>
   <div
     className="container"
@@ -31,7 +29,7 @@ exports[
               className="ten columns"
               id="title"
               name="title"
-              onChange={undefined}
+              onChange={[Function]}
               required={true}
               type="text"
               value={undefined}
@@ -52,7 +50,7 @@ exports[
               className="ten columns"
               id="body"
               name="body"
-              onChange={undefined}
+              onChange={[Function]}
               required={true}
               type="text"
               value={undefined}
@@ -71,7 +69,7 @@ exports[
           </button>
           <button
             className="six columns button-primary"
-            onClick={undefined}
+            onClick={[Function]}
             type="submit"
           >
             Create

@@ -5,8 +5,10 @@ import Axios from 'axios';
 
 import { setTitle, setBody, addPost } from './../../actions';
 
-export class CreateTodo extends React.Component {
+class CreateTodo extends React.Component {
   static async handleDelete(event) {
+    event.preventDefault();
+    
     let success = true;
 
     await Axios.delete('/todos')
@@ -15,8 +17,6 @@ export class CreateTodo extends React.Component {
         success = false;
         console.error(error);
       });
-
-    event.preventDefault();
 
     return success;
   }
