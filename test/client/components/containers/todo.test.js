@@ -11,9 +11,7 @@ describe('<Todo />', () => {
   test('should render correctly', () => {
     const entry = { title: 'My Title', body: 'My Body', timestamp: 10000 };
 
-    const tree = renderer
-      .create(<Todo entry={entry} />)
-      .toJSON();
+    const tree = renderer.create(<Todo entry={entry} />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

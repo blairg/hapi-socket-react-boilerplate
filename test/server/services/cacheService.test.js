@@ -42,7 +42,7 @@ describe('server/services/cacheService', () => {
     test('should not set the cache when null is passed in', () => {
       cacheService.set(undefined);
       cache.put = jest.fn();
-   
+
       expect(cache.put).toHaveBeenCalledTimes(0);
     });
   });

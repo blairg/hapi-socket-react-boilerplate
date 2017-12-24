@@ -38,9 +38,7 @@ describe('client/components/presentation/index -> <Index todos={todos} />', () =
   test('should render correctly', () => {
     const todos = JSON.stringify([{ title: 'my title', body: 'my body' }]);
 
-    const tree = renderer
-      .create(<Index todos={todos} />)
-      .toJSON();
+    const tree = renderer.create(<Index todos={todos} />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

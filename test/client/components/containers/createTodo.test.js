@@ -43,10 +43,8 @@ describe('client/components/containers/createTodo -> <CreateTodo />', () => {
 
   describe('<CreateTodo />', () => {
     test('should render correctly', () => {
-      const tree = renderer
-        .create(<CreateTodo />)
-        .toJSON();
-  
+      const tree = renderer.create(<CreateTodo />).toJSON();
+
       expect(tree).toMatchSnapshot();
     });
   });
