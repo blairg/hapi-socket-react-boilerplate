@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`client/components/containers/createTodo -> <CreateTodo /> <CreateTodo /> should render correctly 1`] = `
+exports[
+  `client/components/containers/createTodo -> <CreateTodo /> <CreateTodo /> should render correctly 1`
+] = `
 <main>
   <div
     className="container"

@@ -8,7 +8,7 @@ import { setTitle, setBody, addPost } from './../../actions';
 class CreateTodo extends React.Component {
   static async handleDelete(event) {
     event.preventDefault();
-    
+
     let success = true;
 
     await Axios.delete('/todos')
