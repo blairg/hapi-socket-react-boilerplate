@@ -30,6 +30,6 @@
 * Build folder
 
 * VS Code debugging
-    * Mocha Tests
+    * Unit Tests
     * Debug dev
     * Debug Dev with modules

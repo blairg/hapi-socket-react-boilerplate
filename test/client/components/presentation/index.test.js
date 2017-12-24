@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
+
 import Todos from './../../../../src/client/components/containers/todos.jsx';
 import Index from './../../../../src/client/components/presentation/index.jsx';
 
@@ -31,5 +33,13 @@ describe('client/components/presentation/index -> <Index todos={todos} />', () =
 
     expect(wrapper.html().includes(todo.title)).toBeTruthy();
     expect(wrapper.html().includes(todo.body)).toBeTruthy();
+  });
+
+  test('should render correctly', () => {
+    const todos = JSON.stringify([{ title: 'my title', body: 'my body' }]);
+
+    const tree = renderer.create(<Index todos={todos} />).toJSON();
+
+    expect(tree).toMatchSnapshot();
   });
 });

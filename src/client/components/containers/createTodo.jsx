@@ -7,6 +7,8 @@ import { setTitle, setBody, addPost } from './../../actions';
 
 class CreateTodo extends React.Component {
   static async handleDelete(event) {
+    event.preventDefault();
+
     let success = true;
 
     await Axios.delete('/todos')
@@ -15,8 +17,6 @@ class CreateTodo extends React.Component {
         success = false;
         console.error(error);
       });
-
-    event.preventDefault();
 
     return success;
   }
@@ -113,6 +113,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
+/* istanbul ignore next */
 const mapStateToProps = state => {
   const { title, body } = state;
 

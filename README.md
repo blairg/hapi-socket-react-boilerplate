@@ -43,7 +43,7 @@ Following options: -
 * To just run the unit tests -> `npm run test`
 * To run tests with coverage (Istanbul) -> `npm run test:coverage`. This will output to `coverage` folder. Locate the `index.html` in here and open in your browser.
 * To watch tests for changes -> `npm run test:watch`
-* In VS Code you have 2 debug options avaiable for tests. `Mocha Tests` will execute tests. `Mocha Tests with Coverage`, will run tests with coverage.
+* In VS Code you have 2 debug options avaiable for tests. `Unit Tests` will execute tests. `Tests with Coverage`, will run tests with coverage.
 
 ## Linting 🔍
 

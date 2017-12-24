@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[
+  `client/components/presentation/index -> <Index todos={todos} /> should render correctly 1`
+] = `
+<html
+  lang="en"
+>
+  <head>
+    <meta
+      charSet="UTF-8"
+    />
+    <title>
+      Node.js + Hapi.js + Socket.io + HTTPS + HTTP/2 + React.js + Redux.js | Todo Example
+    </title>
+    <link
+      as="style"
+      href="/css/normalize.css"
+      rel="preload"
+    />
+    <link
+      as="style"
+      href="/css/skeleton.css"
+      rel="preload"
+    />
+    <link
+      as="style"
+      href="/css/site.css"
+      rel="preload"
+    />
+    <link
+      as="script"
+      href="/js/bundle.js"
+      rel="preload"
+    />
+    <link
+      href="/css/normalize.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/css/skeleton.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/css/site.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div
+      id="app"
+    >
+      [{"title":"my title","body":"my body"}]
+    </div>
+    <script
+      defer={true}
+      src="/js/bundle.js"
+    />
+  </body>
+</html>
+`;

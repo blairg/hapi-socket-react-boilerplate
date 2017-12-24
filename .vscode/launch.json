@@ -7,35 +7,21 @@
     {
         "type": "node",
         "request": "launch",
-        "name": "Mocha Tests",
-        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+        "name": "Unit Tests",
+        "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
         "args": [
-            "-u",
-            "tdd",
-            "--timeout",
-            "999999",
-            "--colors",
-            "--compilers",
-            "js:babel-core/register",
-            "--recursive"
+            "-i"
         ],
         "internalConsoleOptions": "openOnSessionStart"
     },
     {
         "type": "node",
         "request": "launch",
-        "name": "Mocha Tests with Coverage",
-        "program": "${workspaceFolder}/node_modules/.bin/babel-node",
+        "name": "Tests with Coverage",
+        "program": "${workspaceFolder}/node_modules/.bin/jest",
         "args": [
-            "${workspaceFolder}/node_modules/.bin/babel-istanbul",
-            "cover",
-            "--include-all-sources",
-            "--colors",
-            "--root",
-            "./src",
-            "_mocha",
-            "--",
-            "--recursive"
+            "--config=jest.config.js",
+            "--coverage"
         ],
         "internalConsoleOptions": "openOnSessionStart"
     },
