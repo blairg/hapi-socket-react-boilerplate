@@ -1,34 +1,24 @@
 /* eslint-disable no-undef */
 
-import assert from 'assert';
-import sinon from 'sinon';
 import nes from 'nes';
 import inert from 'inert';
 import vision from 'vision';
 import plugins from './../../../src/server/plugins/index';
 
-const sandbox = sinon.sandbox.create();
-
 describe('server/plugins/index', () => {
-  beforeEach(() => {});
-
-  afterEach(() => {
-    sandbox.restore();
-  });
-
   test('should return 4 plugins', () => {
-    assert.equal(plugins.length, 4);
+    expect(plugins.length).toEqual(4);
   });
 
   test('should return nes plugin at index 0', () => {
-    assert.equal(plugins[0], nes);
+    expect(plugins[0]).toEqual(nes);
   });
 
   test('should return nes inert at index 1', () => {
-    assert.equal(plugins[1], inert);
+    expect(plugins[1]).toEqual(inert);
   });
 
   test('should return nes vision at index 2', () => {
-    assert.equal(plugins[2], vision);
+    expect(plugins[2]).toEqual(vision);
   });
 });
