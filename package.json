@@ -1,6 +1,6 @@
 {
   "name": "hapi-socket-react-boilerplate",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Boilerplate app to get you up and running with Hapi, HTTPS, HTTP/2, Web Socket and React/Redux.",
   "main": "src/server/index.js",
   "homepage": "https://hapi-boilerplate-docker.herokuapp.com/index",
@@ -18,7 +18,8 @@
     "react",
     "redux",
     "webpack",
-    "socket.io"
+    "socket.io",
+    "jest"
   ],
   "scripts": {
     "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
@@ -37,9 +38,9 @@
     "lint": "./node_modules/.bin/eslint src/ --fix",
     "pretty": "prettier --single-quote --trailing-comma all --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",
     "start": "NODE_NO_HTTP2=1 node ./dist/server.js",
-    "test": "mocha -c --require babel-register --require babel-polyfill --require jsdom-global/register --recursive",
-    "test:coverage": "babel-node ./node_modules/.bin/babel-istanbul cover --include-all-sources --root ./src _mocha -- --recursive",
-    "test:watch": "mocha -c -w --require babel-core/register --require babel-polyfill -r jsdom-global/register --recursive"
+    "test": "jest --config jest.config.js",
+    "test:coverage": "jest --config jest.config.js --coverage",
+    "test:watch": "jest --watch"
   },
   "author": "Blair Garrett <blair.garrett1@gmail.com>",
   "license": "ISC",
@@ -48,10 +49,10 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
-    "babel-istanbul": "^0.12.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -67,22 +68,19 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
     "eventsource-polyfill": "^0.9.6",
+    "jest": "^22.0.4",
     "jsdom": "11.3.0",
     "jsdom-global": "3.0.2",
-    "mocha": "^4.0.1",
-    "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.2",
     "prettier": "^1.9.2",
     "redux-mock-store": "^1.3.0",
-    "sinon": "^4.1.2",
     "webpack": "^3.9.1",
     "webpack-merge": "^4.1.1",
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "babel-preset-env": "^1.6.1",
     "decode-html": "^2.0.0",
     "hapi": "16.2.0",
     "hapi-swagger": "^8.0.0",

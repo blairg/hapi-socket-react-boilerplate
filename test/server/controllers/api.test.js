@@ -1,45 +1,31 @@
 /* eslint-disable no-undef */
 
-import sinon from 'sinon';
 import HttpStatus from 'http-status';
 import cache from 'memory-cache';
 import { fn as momentProto } from 'moment';
 import ApiController from './../../../src/server/controllers/api';
 
-const sandbox = sinon.sandbox.create();
-
 describe('server/controllers/api', () => {
-  beforeEach(() => {
-    sandbox.stub(cache, 'get');
-    sandbox.stub(cache, 'put');
-    sandbox.stub(momentProto, 'unix');
-  });
-
-  afterEach(() => {
-    sandbox.restore();
-  });
-
   describe('server/controllers/api', () => {
     describe('get/handler', () => {
-      it('should return a list of todos', () => {
+      test('should return a list of todos', () => {
         const todos = [{ title: 'my title', body: 'my body' }];
         const reply = () => ({
           code: () => HttpStatus.OK,
         });
+        cache.get = jest.fn(() => JSON.stringify(todos));
 
-        cache.get.returns(JSON.stringify(todos));
-
-        const requestSpy = sandbox.spy();
-        const replySpy = sandbox.spy(reply);
+        const requestSpy = jest.fn();
+        const replySpy = jest.fn(reply);
 
         ApiController.get.handler(requestSpy, replySpy);
 
-        sinon.assert.calledWith(replySpy, todos);
+        expect(replySpy).toBeCalledWith(todos);
       });
     });
 
     describe('add/handler', () => {
-      it('should add to data store and return a 201 response', () => {
+      test('should add to data store and return a 201 response', () => {
         const todos = [{ title: 'my title', body: 'my body' }];
         const request = {
           payload: todos[0],
@@ -51,16 +37,16 @@ describe('server/controllers/api', () => {
           code: () => HttpStatus.CREATED,
         });
 
-        momentProto.unix.returns(100);
-        cache.get.returns(JSON.stringify(todos));
-        const replySpy = sandbox.spy(reply);
+        momentProto.unix = jest.fn(() => 100);
+        cache.get = jest.fn(() => JSON.stringify(todos));
+        const replySpy = jest.fn(reply);
 
         ApiController.add.handler(request, replySpy);
 
-        sinon.assert.calledWith(replySpy, { created: 'OK' });
+        expect(replySpy).toBeCalledWith({ created: 'OK' });
       });
 
-      it('should add to data store if data store is empty and return a 201 response', () => {
+      test('should add to data store if data store is empty and return a 201 response', () => {
         const todos = [{ title: 'my title', body: 'my body' }];
         const request = {
           payload: todos[0],
@@ -72,16 +58,16 @@ describe('server/controllers/api', () => {
           code: () => HttpStatus.CREATED,
         });
 
-        momentProto.unix.returns(100);
-        cache.get.returns(null);
-        const replySpy = sandbox.spy(reply);
+        momentProto.unix = jest.fn(() => 100);
+        cache.get = jest.fn(() => null);
+        const replySpy = jest.fn(reply);
 
         ApiController.add.handler(request, replySpy);
 
-        sinon.assert.calledWith(replySpy, { created: 'OK' });
+        expect(replySpy).toBeCalledWith({ created: 'OK' });
       });
 
-      it('should not add to data store and return a bad request', () => {
+      test('should not add to data store and return a bad request', () => {
         const request = {
           payload: null,
           server: {
@@ -92,16 +78,16 @@ describe('server/controllers/api', () => {
           code: () => HttpStatus.BAD_REQUEST,
         });
 
-        const replySpy = sandbox.spy(reply);
+        const replySpy = jest.fn(reply);
 
         ApiController.add.handler(request, replySpy);
 
-        sinon.assert.calledWith(replySpy, { 'bad request': 'false' });
+        expect(replySpy).toBeCalledWith({ 'bad request': 'false' });
       });
     });
 
     describe('delete/handler', () => {
-      it('should delete todos and return status of 205', () => {
+      test('should delete todos and return status of 205', () => {
         const request = {
           payload: null,
           server: {
@@ -112,13 +98,13 @@ describe('server/controllers/api', () => {
           code: () => HttpStatus.RESET_CONTENT,
         });
 
-        cache.put.returns([]);
+        cache.put = jest.fn(() => []);
 
-        const replySpy = sandbox.spy(reply);
+        const replySpy = jest.fn(reply);
 
         ApiController.delete.handler(request, replySpy);
 
-        sinon.assert.calledWith(replySpy, { deleted: 'OK' });
+        expect(replySpy).toBeCalledWith({ deleted: 'OK' });
       });
     });
   });

@@ -19,10 +19,12 @@ class Todo extends React.Component {
     this.timer = setInterval(this.tick, 1000);
   }
 
+  /* istanbul ignore next */
   componentWillUnmount() {
     clearInterval(this.timer);
   }
 
+  /* istanbul ignore next */
   tick() {
     this.setState({
       elapsed: calculateTimeDifference(this.props.entry.timestamp),
