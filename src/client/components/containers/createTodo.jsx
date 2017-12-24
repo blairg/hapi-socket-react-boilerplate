@@ -5,7 +5,7 @@ import Axios from 'axios';
 
 import { setTitle, setBody, addPost } from './../../actions';
 
-class CreateTodo extends React.Component {
+export class CreateTodo extends React.Component {
   static async handleDelete(event) {
     let success = true;
 
@@ -113,6 +113,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
+/* istanbul ignore next */
 const mapStateToProps = state => {
   const { title, body } = state;
 

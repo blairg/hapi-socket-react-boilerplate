@@ -2,10 +2,12 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable import/extensions */
 
+import React from 'react';
 import Axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+import renderer from 'react-test-renderer';
 
-import CreateTodo from './../../../../src/client/components/containers/createTodo.jsx';
+import { CreateTodo } from './../../../../src/client/components/containers/createTodo.jsx';
 
 let mockAxios;
 
@@ -36,6 +38,16 @@ describe('client/components/containers/createTodo -> <CreateTodo />', () => {
 
       expect(event.preventDefault).toBeCalled();
       expect(success).toBeFalsy();
+    });
+  });
+
+  describe('<CreateTodo />', () => {
+    test('should render correctly', () => {
+      const tree = renderer
+        .create(<CreateTodo />)
+        .toJSON();
+  
+      expect(tree).toMatchSnapshot();
     });
   });
 });

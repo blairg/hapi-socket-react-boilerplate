@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Todo /> should render correctly 1`] = `
+<div
+  className="tile"
+>
+  <h2>
+    My Title
+  </h2>
+  <p
+    className="text"
+  >
+    My Body
+  </p>
+  <span
+    className="text"
+  >
+    
+  </span>
+</div>
+`;

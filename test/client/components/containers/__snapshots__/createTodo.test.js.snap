@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`client/components/containers/createTodo -> <CreateTodo /> <CreateTodo /> should render correctly 1`] = `
+<main>
+  <div
+    className="container"
+    id="blogContainer"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="six columns blogEntriesCreator"
+      >
+        <h1>
+          Create a Todo
+        </h1>
+        <div
+          className="row form-field"
+        >
+          <label
+            className="two columns label--required"
+            htmlFor="title"
+          >
+            Title
+          </label>
+          <section>
+            <input
+              className="ten columns"
+              id="title"
+              name="title"
+              onChange={undefined}
+              required={true}
+              type="text"
+              value={undefined}
+            />
+          </section>
+        </div>
+        <div
+          className="row form-field"
+        >
+          <label
+            className="two columns label--required"
+            htmlFor="body"
+          >
+            Body
+          </label>
+          <section>
+            <input
+              className="ten columns"
+              id="body"
+              name="body"
+              onChange={undefined}
+              required={true}
+              type="text"
+              value={undefined}
+            />
+          </section>
+        </div>
+        <div
+          className="row form-buttons"
+        >
+          <button
+            className="six columns red-button"
+            onClick={[Function]}
+            type="submit"
+          >
+            Delete All
+          </button>
+          <button
+            className="six columns button-primary"
+            onClick={undefined}
+            type="submit"
+          >
+            Create
+          </button>
+        </div>
+      </div>
+      <div
+        className="six columns blogEntriesContainer"
+      >
+        <div
+          className="blogEntries"
+          id="blogEntries"
+        />
+      </div>
+    </div>
+  </div>
+</main>
+`;
