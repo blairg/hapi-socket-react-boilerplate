@@ -9,7 +9,7 @@ import ApiController from './../../../src/server/controllers/api';
 describe('server/controllers/api', () => {
   describe('server/controllers/api', () => {
     const todos = [{ title: 'my title', body: 'my body' }];
-    
+
     describe('get/handler', () => {
       test('should return a list of todos', () => {
         const reply = () => ({
