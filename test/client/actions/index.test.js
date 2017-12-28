@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+/* eslint-disable import/no-unresolved */
 
 import Axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
@@ -47,16 +48,17 @@ describe('client/actions/index', () => {
   });
 
   describe('addPost', () => {
+    const post = { title: 'my title', body: 'my body' };
+    const initialState = {
+      setTitle: {
+        title: post.title,
+      },
+      setBody: {
+        body: post.body,
+      },
+    };
+
     test('should dispatch action to create a post', async () => {
-      const post = { title: 'my title', body: 'my body' };
-      const initialState = {
-        setTitle: {
-          title: post.title,
-        },
-        setBody: {
-          body: post.body,
-        },
-      };
       const getState = () => initialState;
       const dispatch = jest.fn();
 
@@ -70,15 +72,6 @@ describe('client/actions/index', () => {
     });
 
     test('should not dispatch action as post request failed', async () => {
-      const post = { title: 'my title', body: 'my body' };
-      const initialState = {
-        setTitle: {
-          title: post.title,
-        },
-        setBody: {
-          body: post.body,
-        },
-      };
       const getState = () => initialState;
       const dispatch = jest.fn();
 

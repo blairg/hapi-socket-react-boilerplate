@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
+/* eslint-disable import/no-unresolved */
 
 import Nes from 'nes/client';
 import Axios from 'axios';
