@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+/* eslint-disable import/no-unresolved */
 
 import { fn as momentProto } from 'moment';
 import calculateTimeDifference from './../../../src/shared/helpers/timeHelper';

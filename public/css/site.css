@@ -18,7 +18,7 @@ html, body {
 
 .tile:hover{
     /*   background-color:#99aeff; */
-    box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
+    box-shadow: 0px 35px 77px -17px black;
     transform:scale(1.05);
 }
 

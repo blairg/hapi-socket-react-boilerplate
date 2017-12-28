@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
