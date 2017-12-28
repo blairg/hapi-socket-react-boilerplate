@@ -5,6 +5,8 @@ module.exports = {
     'src/**/*.{js,jsx}',
     'src/**/**/*.{js,jsx}',
     '!node_modules/**',
+    '!stories/**',
+    '!.storybook/**',
     '!test/**',
   ],
   coverageDirectory: 'coverage',

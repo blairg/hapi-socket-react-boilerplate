@@ -1,6 +1,6 @@
 # hapi-socket-react-boilerplate
 
-[![Build Status](https://travis-ci.org/blairg/hapi-socket-react-boilerplate.svg?branch=master)](https://travis-ci.org/blairg/hapi-socket-react-boilerplate) [![Coverage Status](https://coveralls.io/repos/github/blairg/hapi-socket-react-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/blairg/hapi-socket-react-boilerplate?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate/badge.svg)](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate) [![dependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate) [![devDependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/dev-status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate?type=dev) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2fdc21a15a3a4c1480982d0568eeec5a)](https://www.codacy.com/app/blairg/hapi-socket-react-boilerplate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=blairg/hapi-socket-react-boilerplate&amp;utm_campaign=Badge_Grade) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Build Status](https://travis-ci.org/blairg/hapi-socket-react-boilerplate.svg?branch=master)](https://travis-ci.org/blairg/hapi-socket-react-boilerplate) [![Coverage Status](https://coveralls.io/repos/github/blairg/hapi-socket-react-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/blairg/hapi-socket-react-boilerplate?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate/badge.svg)](https://snyk.io/test/github/blairg/hapi-socket-react-boilerplate) [![dependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate) [![devDependencies Status](https://david-dm.org/blairg/hapi-socket-react-boilerplate/dev-status.svg)](https://david-dm.org/blairg/hapi-socket-react-boilerplate?type=dev) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2fdc21a15a3a4c1480982d0568eeec5a)](https://www.codacy.com/app/blairg/hapi-socket-react-boilerplate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=blairg/hapi-socket-react-boilerplate&amp;utm_campaign=Badge_Grade) [![CodeFactor](https://www.codefactor.io/repository/github/blairg/hapi-socket-react-boilerplate/badge)](https://www.codefactor.io/repository/github/blairg/hapi-socket-react-boilerplate) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 Boilerplate app to get you up and running with Hapi, HTTP2, Web Socket and React.
 
@@ -43,6 +43,13 @@ Following options: -
 * To run tests with coverage (Istanbul) -> `npm run test:coverage`. This will output to `coverage` folder. Locate the `index.html` in here and open in your browser.
 * To watch tests for changes -> `npm run test:watch`
 * In VS Code you have 2 debug options avaiable for tests. `Unit Tests` will execute tests. `Tests with Coverage`, will run tests with coverage.
+
+## Storybook 📚
+
+[For more info](https://storybook.js.org/)
+
+* In the terminal run -> `npm run storybook`
+* Build Storybook as a static site -> `npm run storybook:build`
 
 ## Linting 🔍
 

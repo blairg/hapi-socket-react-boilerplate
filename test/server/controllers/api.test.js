@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+/* eslint-disable import/no-unresolved */
 
 import HttpStatus from 'http-status';
 import cache from 'memory-cache';
@@ -8,8 +9,9 @@ import ApiController from './../../../src/server/controllers/api';
 describe('server/controllers/api', () => {
   describe('server/controllers/api', () => {
     describe('get/handler', () => {
+      const todos = [{ title: 'my title', body: 'my body' }];
+
       test('should return a list of todos', () => {
-        const todos = [{ title: 'my title', body: 'my body' }];
         const reply = () => ({
           code: () => HttpStatus.OK,
         });
@@ -26,7 +28,6 @@ describe('server/controllers/api', () => {
 
     describe('add/handler', () => {
       test('should add to data store and return a 201 response', () => {
-        const todos = [{ title: 'my title', body: 'my body' }];
         const request = {
           payload: todos[0],
           server: {
@@ -47,7 +48,6 @@ describe('server/controllers/api', () => {
       });
 
       test('should add to data store if data store is empty and return a 201 response', () => {
-        const todos = [{ title: 'my title', body: 'my body' }];
         const request = {
           payload: todos[0],
           server: {

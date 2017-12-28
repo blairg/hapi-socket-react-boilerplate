@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+
 import Hapi from 'hapi';
 import Http2 from 'http2';
 import fs from 'fs';

@@ -6,10 +6,7 @@ import React from 'react';
 import Axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
 import CreateTodo from './../../../../src/client/components/containers/createTodo.jsx';
 
