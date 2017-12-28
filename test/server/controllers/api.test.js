@@ -8,9 +8,9 @@ import ApiController from './../../../src/server/controllers/api';
 
 describe('server/controllers/api', () => {
   describe('server/controllers/api', () => {
+    const todos = [{ title: 'my title', body: 'my body' }];
+    
     describe('get/handler', () => {
-      const todos = [{ title: 'my title', body: 'my body' }];
-
       test('should return a list of todos', () => {
         const reply = () => ({
           code: () => HttpStatus.OK,
