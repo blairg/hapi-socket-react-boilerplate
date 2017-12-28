@@ -1,14 +1,16 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable import/no-extraneous-dependencies */
+
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import Moment from 'moment';
 
-import Todo from './../../../src/client/components/containers/todo.jsx';
+import Todo from './../../../src/client/components/containers/todo';
 
-// storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+import './../../../public/css/skeleton.css';
+import './../../../public/css/site.css';
 
-const entry = { title: 'My Title', body: 'My Body', timestamp: 10000 };
+const entry = { title: 'My Title', body: 'My Body', timestamp: Moment().unix() - 10 };
 
 storiesOf('Todo', module)
   .addDecorator(story => (
@@ -16,5 +18,5 @@ storiesOf('Todo', module)
       {story()}
     </div>
   ))
-  .add('without any entries', () => <Todo />)
-  .add('with entries', () => <Todo entry={entry} />);
+  .add('without an entry', () => <Todo />)
+  .add('with an entry', () => <Todo entry={entry} />);
