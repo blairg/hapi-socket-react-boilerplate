@@ -10,7 +10,6 @@ import calculateTimeDifference from './../../../shared/helpers/timeHelper';
 
 class Todos extends React.Component {
   static getEntries(entries) {
-    console.log(entries);
     const entriesNew = [];
     let key = 0;
 
@@ -32,9 +31,7 @@ class Todos extends React.Component {
   /* istanbul ignore next */
   componentDidMount() {
     /* istanbul ignore next */
-    if (false == true) {
-      subscribeToTodos(data => this.props.dispatchTodos(data));
-    }
+    subscribeToTodos(data => this.props.dispatchTodos(data));
   }
 
   render() {

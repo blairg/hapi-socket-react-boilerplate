@@ -43,7 +43,7 @@
     "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006 -c .storybook",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook"
   },
   "author": "Blair Garrett <blair.garrett1@gmail.com>",
   "license": "ISC",
@@ -94,6 +94,7 @@
     "http-status": "^1.0.1",
     "http2": "^3.3.7",
     "inert": "^4.2.1",
+    "jest-cli": "^22.0.4",
     "memory-cache": "^0.2.0",
     "moment": "^2.20.1",
     "nes": "^6.5.2",

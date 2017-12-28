@@ -63,3 +63,6 @@ ssl/*
 !ssl/createCerts.sh
 public/js/
 dist/
+
+# storybook
+storybook-static
