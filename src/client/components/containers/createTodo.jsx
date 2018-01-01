@@ -13,10 +13,13 @@ class CreateTodo extends React.Component {
 
     let success = true;
 
+    // TODO: Should be abstracted to a data service/provider.
+    // Must be a recognized way of doing this.
     await Axios.delete('/todos')
       .then(() => {})
       .catch(error => {
         success = false;
+        // TODO: Use a proper logger.
         console.error(error);
       });
 
@@ -67,7 +70,7 @@ class CreateTodo extends React.Component {
               <div className="row form-buttons">
                 <button
                   type="submit"
-                  className="six columns red-button"
+                  className="six columns delete-button"
                   onClick={CreateTodo.handleDelete}
                 >
                   Delete All

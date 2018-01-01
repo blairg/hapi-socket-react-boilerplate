@@ -12,18 +12,24 @@ const Index = props => {
           Node.js + Hapi.js + Socket.io + HTTPS + HTTP/2 + React.js + Redux.js |
           Todo Example
         </title>
-        <link rel="preload" as="style" href="/css/normalize.css" />
+        {/* <link rel="preload" as="style" href="/css/normalize.css" />
         <link rel="preload" as="style" href="/css/skeleton.css" />
-        <link rel="preload" as="style" href="/css/site.css" />
+        <link rel="preload" as="style" href="/css/site.css" /> */}
+
+        <link rel="preload" as="style" href="/css/vendors.css" />
+        <link rel="preload" as="style" href="/css/bundle.css" />
         <link rel="preload" as="script" href="/js/bundle.js" />
 
-        <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="/css/vendors.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bundle.css" />
+
+        {/* <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
         <link rel="stylesheet" type="text/css" href="/css/skeleton.css" />
-        <link rel="stylesheet" type="text/css" href="/css/site.css" />
+        <link rel="stylesheet" type="text/css" href="/css/site.css" /> */}
       </head>
       <body>
         <div id="app">{todos}</div>
-        <script src="/js/bundle.js" defer />
+        <script async src="/js/bundle.js" />
       </body>
     </html>
   );

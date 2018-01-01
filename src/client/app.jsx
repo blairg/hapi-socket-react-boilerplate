@@ -16,6 +16,10 @@ import Todos from './components/containers/todos.jsx';
 
 import CacheService from './services/cacheService';
 
+import './../stylesheets/main.scss';
+import './../stylesheets/vendors/normalize.css';
+import './../stylesheets/vendors/skeleton.css';
+
 const loggerMiddleware = createLogger();
 
 /* eslint-disable no-underscore-dangle */

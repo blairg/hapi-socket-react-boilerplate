@@ -61,7 +61,12 @@ typings/
 ssl/*
 !ssl/.gitkeep
 !ssl/createCerts.sh
+public
 public/js/
+!public/js/.gitkeep
+public/css/
+!public/css/normalize.css
+!public/css/skeleton.css
 dist/
 
 # storybook

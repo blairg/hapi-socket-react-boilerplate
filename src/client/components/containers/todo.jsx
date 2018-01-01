@@ -33,7 +33,7 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <div className="tile">
+      <div className="todo-tile">
         <h2>{this.props.entry.title}</h2>
         <p className="text">{this.props.entry.body}</p>
         <span className="text">{this.state.elapsed}</span>

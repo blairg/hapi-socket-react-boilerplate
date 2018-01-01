@@ -63,6 +63,10 @@ Following options: -
 
 If you find anything wrong with this repo post them [here please](https://github.com/blairg/hapi-socket-react-boilerplate/issues).
 
+## Contributing
+
+Refer to `CONTRIBUTING.md` in the root of this repo.
+
 ## Todo ✍️
 
 I've left myself some work to do. Look in `todo.md`.
