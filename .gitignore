@@ -62,6 +62,7 @@ ssl/*
 !ssl/.gitkeep
 !ssl/createCerts.sh
 public
+!public/.gitkeep
 public/js/
 !public/js/.gitkeep
 public/css/
