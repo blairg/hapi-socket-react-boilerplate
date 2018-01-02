@@ -1,10 +1,10 @@
 .delete-button {
-	background-color: $createtodo-delete-button-background;
-	border-color: $createtodo-delete-button-border;
-	color: $createtodo-delete-button-foreground;
+  background-color: $createtodo-delete-button-background;
+  border-color: $createtodo-delete-button-border;
+  color: $createtodo-delete-button-foreground;
 
-	&:hover { 
-		background-color: $createtodo-delete-button-hoover-background;
-		border-color: $createtodo-delete-button-hoover-border;
-	}
+  &:hover {
+    background-color: $createtodo-delete-button-hoover-background;
+    border-color: $createtodo-delete-button-hoover-border;
+  }
 }
