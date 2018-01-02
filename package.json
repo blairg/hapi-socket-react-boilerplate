@@ -41,7 +41,7 @@
     "pretty": "prettier --single-quote --trailing-comma all --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",
     "start": "NODE_NO_HTTP2=1 node ./dist/server.js",
     "test": "jest --config jest.config.js",
-    "test:coverage": "rm -rf ./coverage ** jest --config jest.config.js --coverage",
+    "test:coverage": "rm -rf ./coverage && jest --config jest.config.js --coverage",
     "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006 -c .storybook",
