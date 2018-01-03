@@ -1,4 +1,4 @@
-FROM node:8.9.3-alpine
+FROM blairguk/node-sass-alpine:8.9.4
 MAINTAINER blair.garrett1@gmail.com
 LABEL maintainer="blair.garrett1@gmail.com"
 
@@ -15,7 +15,6 @@ ARG BUILD_ENV=build:dev
 ENV BUILD_ENV=${BUILD_ENV}
 
 COPY ./src /usr/app/src
-COPY ./public/ /usr/app/public/
 COPY webpack.client.config.js webpack.client.prod.config.js webpack.server.config.js package.json package-lock.json /usr/app/
 
 WORKDIR /usr/app
