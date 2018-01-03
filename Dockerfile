@@ -15,7 +15,7 @@ ARG BUILD_ENV=build:dev
 ENV BUILD_ENV=${BUILD_ENV}
 
 COPY ./src /usr/app/src
-COPY webpack.client.config.js webpack.client.prod.config.js webpack.server.config.js package.json package-lock.json /usr/app/
+COPY webpack.client.config.js webpack.client.prod.config.js webpack.server.config.js webpack.server.prod.config.js package.json package-lock.json /usr/app/
 
 WORKDIR /usr/app
 
