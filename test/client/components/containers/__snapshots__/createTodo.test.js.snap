@@ -63,7 +63,7 @@ exports[
           className="row form-buttons"
         >
           <button
-            className="six columns red-button"
+            className="six columns delete-button"
             onClick={[Function]}
             type="submit"
           >

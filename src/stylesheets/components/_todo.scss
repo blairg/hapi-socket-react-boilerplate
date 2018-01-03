@@ -1,0 +1,16 @@
+.todo-tile {
+  background-size: cover;
+  border: 1px solid $todo-tile-border;
+  border-radius: 4px;
+  margin: 17px;
+  max-width: 520px;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  transition: .4s ease-out;
+
+  &:hover {
+    box-shadow: 35px 77px -17px $todo-tile-hover;
+    transform: scale(1.05);
+  }
+}

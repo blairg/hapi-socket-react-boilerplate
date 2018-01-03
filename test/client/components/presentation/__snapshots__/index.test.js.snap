@@ -15,17 +15,12 @@ exports[
     </title>
     <link
       as="style"
-      href="/css/normalize.css"
+      href="/css/vendors.css"
       rel="preload"
     />
     <link
       as="style"
-      href="/css/skeleton.css"
-      rel="preload"
-    />
-    <link
-      as="style"
-      href="/css/site.css"
+      href="/css/bundle.css"
       rel="preload"
     />
     <link
@@ -34,17 +29,12 @@ exports[
       rel="preload"
     />
     <link
-      href="/css/normalize.css"
+      href="/css/vendors.css"
       rel="stylesheet"
       type="text/css"
     />
     <link
-      href="/css/skeleton.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="/css/site.css"
+      href="/css/bundle.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -56,7 +46,7 @@ exports[
       [{"title":"my title","body":"my body"}]
     </div>
     <script
-      defer={true}
+      async={true}
       src="/js/bundle.js"
     />
   </body>

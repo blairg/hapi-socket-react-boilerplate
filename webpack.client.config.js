@@ -4,6 +4,21 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const bundleExtractPlugin = new ExtractTextPlugin({
+  filename: 'css/bundle.css',
+});
+
+const vendorsExtractPlugin = new ExtractTextPlugin({
+  filename: 'css/vendors.css',
+});
+
+const styleSheetOptions = {
+  url: false,
+  minimize: false,
+  sourceMap: true,
+};
 
 module.exports = (env) => {
   return {
@@ -11,8 +26,8 @@ module.exports = (env) => {
     target: 'web',
     entry: ['./src/client/app.jsx'],
     output: {
-      path: path.resolve(__dirname, 'public/js'),
-      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'public'),
+      filename: 'js/bundle.js',
     },
     module: {
       loaders: [
@@ -25,6 +40,31 @@ module.exports = (env) => {
             presets: ['es2015', 'stage-0', 'react'],
           },
         },
+        {
+          test: /\.scss$/,
+          exclude: [/node_modules/],
+          use: bundleExtractPlugin.extract({
+            use: [{
+              loader: 'css-loader',
+              options: styleSheetOptions,
+            }, {
+              loader: 'sass-loader',
+              options: styleSheetOptions,
+            }, {
+              loader: 'postcss-loader?parser=postcss-scss',
+            }],
+          }),
+        },
+        {
+          test: /\.css$/,
+          exclude: [/node_modules/],
+          use: vendorsExtractPlugin.extract({
+            use: [{
+              loader: 'css-loader',
+              options: styleSheetOptions,
+            }],
+          }),
+        },
       ],
     },
     stats: {
@@ -35,7 +75,8 @@ module.exports = (env) => {
       new webpack.DefinePlugin({
         SOCKET_URL: JSON.stringify(process.env.SOCKET_URL ? process.env.SOCKET_URL : 'wss://localhost:3000'),
       }),
+      bundleExtractPlugin,
+      vendorsExtractPlugin,
     ],
   };
 };
-
