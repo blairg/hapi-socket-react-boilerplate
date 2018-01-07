@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`client/components/presentation/index -> <Index todos={todos} /> should render correctly 1`] = `
+exports[
+  `client/components/presentation/index -> <Index todos={todos} /> should render correctly 1`
+] = `
 <html
   lang="en"
 >
