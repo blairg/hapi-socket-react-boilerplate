@@ -20,11 +20,19 @@ module.exports = (env) => ({
         exclude: [/node_modules/],
         loader: 'babel-loader',
         options: {
-          plugins: ['transform-runtime'],
-          presets: ['es2015', 'stage-0', 'react'],
+          presets: [
+            ['@babel/preset-env', {
+              targets: {
+                node: '8.9.4',
+              },
+            }],
+          ],
         },
       },
     ],
+  },
+  performance: {
+    hints: 'warning',
   },
   stats: {
     colors: true,

@@ -36,8 +36,13 @@ module.exports = (env) => {
           exclude: [/node_modules/],
           loader: 'babel-loader',
           options: {
-            plugins: ['transform-runtime'],
-            presets: ['es2015', 'stage-0', 'react'],
+            presets: [
+              ['@babel/preset-env', {
+                targets: {
+                  browsers: ['last 2 versions', 'safari >= 7'],
+                },
+              }],
+            ],
           },
         },
         {
@@ -69,6 +74,9 @@ module.exports = (env) => {
     },
     stats: {
       colors: true,
+    },
+    performance: {
+      hints: 'warning',
     },
     devtool: 'source-map',
     plugins: [

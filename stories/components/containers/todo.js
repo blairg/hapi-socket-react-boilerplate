@@ -7,8 +7,8 @@ import Moment from 'moment';
 
 import Todo from './../../../src/client/components/containers/todo';
 
-import './../../../public/css/skeleton.css';
-import './../../../public/css/site.css';
+import './../../../public/css/vendors.css';
+import './../../../public/css/bundle.css';
 
 const entry = { title: 'My Title', body: 'My Body', timestamp: Moment().unix() - 10 };
 
