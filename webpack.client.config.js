@@ -36,12 +36,18 @@ module.exports = (env) => {
           exclude: [/node_modules/],
           loader: 'babel-loader',
           options: {
+            plugins: [
+              ['@babel/plugin-transform-runtime'],
+            ],
             presets: [
               ['@babel/preset-env', {
                 targets: {
                   browsers: ['last 2 versions', 'safari >= 7'],
                 },
               }],
+              ['@babel/preset-es2015'],
+              ['@babel/preset-stage-0'],
+              ['@babel/preset-react'],
             ],
           },
         },

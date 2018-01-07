@@ -1,18 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `client/components/presentation/index -> <Index todos={todos} /> should render correctly 1`
-] = `
+exports[`client/components/presentation/index -> <Index todos={todos} /> should render correctly 1`] = `
 <html
   lang="en"
 >
   <head>
     <meta
-      charSet="UTF-8"
+      charSet="utf-8"
     />
     <title>
-      Node.js + Hapi.js + Socket.io + HTTPS + HTTP/2 + React.js + Redux.js | Todo Example
+      Node.js + Hapi.js + Web Sockets + HTTPS + HTTP/2 + React.js + Redux.js | Todo Example
     </title>
+    <meta
+      content="Boilerplate app to get you up and running with Hapi, HTTP/2, Web Sockets and React."
+      name="description"
+    />
+    <meta
+      content="width=device-width, initial-scale=1"
+      name="viewport"
+    />
     <link
       as="style"
       href="/css/vendors.css"
@@ -40,11 +46,13 @@ exports[
     />
   </head>
   <body>
-    <div
-      id="app"
-    >
-      [{"title":"my title","body":"my body"}]
-    </div>
+    <main>
+      <div
+        id="app"
+      >
+        [{"title":"my title","body":"my body"}]
+      </div>
+    </main>
     <script
       async={true}
       src="/js/bundle.js"

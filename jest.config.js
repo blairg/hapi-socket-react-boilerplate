@@ -21,4 +21,7 @@ module.exports = {
     'client/subscribers/*',
     'client/reducers/*',
   ],
+  transform: {
+    '^.+\\.js|jsx$': './jest.transform.js',
+  },
 };

@@ -28,7 +28,7 @@ class CreateTodo extends React.Component {
 
   render() {
     return (
-      <>
+      <React.Fragment key="blogContainerKey">
         <div id="blogContainer" className="container">
           <div className="row">
             <div className="six columns blogEntriesCreator">
@@ -91,7 +91,7 @@ class CreateTodo extends React.Component {
             </div>
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }

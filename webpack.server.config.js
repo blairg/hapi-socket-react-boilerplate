@@ -20,12 +20,18 @@ module.exports = (env) => ({
         exclude: [/node_modules/],
         loader: 'babel-loader',
         options: {
+          plugins: [
+            ['@babel/plugin-transform-runtime'],
+          ],
           presets: [
             ['@babel/preset-env', {
               targets: {
                 node: '8.9.4',
               },
             }],
+            ['@babel/preset-es2015'],
+            ['@babel/preset-stage-0'],
+            ['@babel/preset-react'],
           ],
         },
       },
