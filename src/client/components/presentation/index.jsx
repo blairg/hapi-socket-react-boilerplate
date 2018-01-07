@@ -14,7 +14,8 @@ const Index = props => {
         </title>
         <meta
           name="description"
-          content="Boilerplate app to get you up and running with Hapi, HTTP/2, Web Sockets and React."
+          content="Boilerplate app to get you up and
+          running with Hapi, HTTP/2, Web Sockets and React."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" as="style" href="/css/vendors.css" />
