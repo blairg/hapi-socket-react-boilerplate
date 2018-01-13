@@ -30,6 +30,7 @@ module.exports = (env) => ({
               },
             }],
             ['@babel/preset-es2015'],
+            ['@babel/preset-es2017'],
             ['@babel/preset-stage-0'],
             ['@babel/preset-react'],
           ],
