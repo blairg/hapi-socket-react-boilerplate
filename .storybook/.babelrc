@@ -1,0 +1,11 @@
+{
+	"plugins": [
+		["@babel/plugin-transform-runtime"]
+	],
+	"presets": [
+		["@babel/preset-env"],
+		["@babel/preset-es2015"],
+		["@babel/preset-stage-0"],
+		["@babel/preset-react"]
+	]
+}

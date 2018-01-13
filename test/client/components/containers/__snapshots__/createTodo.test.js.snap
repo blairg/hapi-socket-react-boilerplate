@@ -3,90 +3,88 @@
 exports[
   `client/components/containers/createTodo -> <CreateTodo /> <CreateTodo /> should render correctly 1`
 ] = `
-<main>
+<div
+  className="container"
+  id="blogContainer"
+>
   <div
-    className="container"
-    id="blogContainer"
+    className="row"
   >
     <div
-      className="row"
+      className="six columns blogEntriesCreator"
     >
+      <h1>
+        Create a Todo
+      </h1>
       <div
-        className="six columns blogEntriesCreator"
+        className="row form-field"
       >
-        <h1>
-          Create a Todo
-        </h1>
-        <div
-          className="row form-field"
+        <label
+          className="two columns label--required"
+          htmlFor="title"
         >
-          <label
-            className="two columns label--required"
-            htmlFor="title"
-          >
-            Title
-          </label>
-          <section>
-            <input
-              className="ten columns"
-              id="title"
-              name="title"
-              onChange={[Function]}
-              required={true}
-              type="text"
-              value={undefined}
-            />
-          </section>
-        </div>
-        <div
-          className="row form-field"
-        >
-          <label
-            className="two columns label--required"
-            htmlFor="body"
-          >
-            Body
-          </label>
-          <section>
-            <input
-              className="ten columns"
-              id="body"
-              name="body"
-              onChange={[Function]}
-              required={true}
-              type="text"
-              value={undefined}
-            />
-          </section>
-        </div>
-        <div
-          className="row form-buttons"
-        >
-          <button
-            className="six columns delete-button"
-            onClick={[Function]}
-            type="submit"
-          >
-            Delete All
-          </button>
-          <button
-            className="six columns button-primary"
-            onClick={[Function]}
-            type="submit"
-          >
-            Create
-          </button>
-        </div>
+          Title
+        </label>
+        <section>
+          <input
+            className="ten columns"
+            id="title"
+            name="title"
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value={undefined}
+          />
+        </section>
       </div>
       <div
-        className="six columns blogEntriesContainer"
+        className="row form-field"
       >
-        <div
-          className="blogEntries"
-          id="blogEntries"
-        />
+        <label
+          className="two columns label--required"
+          htmlFor="body"
+        >
+          Body
+        </label>
+        <section>
+          <input
+            className="ten columns"
+            id="body"
+            name="body"
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value={undefined}
+          />
+        </section>
+      </div>
+      <div
+        className="row form-buttons"
+      >
+        <button
+          className="six columns delete-button"
+          onClick={[Function]}
+          type="submit"
+        >
+          Delete All
+        </button>
+        <button
+          className="six columns button-primary"
+          onClick={[Function]}
+          type="submit"
+        >
+          Create
+        </button>
       </div>
     </div>
+    <div
+      className="six columns blogEntriesContainer"
+    >
+      <div
+        className="blogEntries"
+        id="blogEntries"
+      />
+    </div>
   </div>
-</main>
+</div>
 `;

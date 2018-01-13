@@ -8,8 +8,8 @@ import Moment from 'moment';
 import Provider from './../../Provider';
 import Todos from './../../../src/client/components/containers/todos';
 
-import './../../../public/css/skeleton.css';
-import './../../../public/css/site.css';
+import './../../../public/css/vendors.css';
+import './../../../public/css/bundle.css';
 
 const timeNow = Moment().unix();
 const entries = [
