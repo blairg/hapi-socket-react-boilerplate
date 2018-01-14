@@ -20,21 +20,24 @@ export function setBody(body: string) {
 
 type Post = {
   title: string,
-  body: string
+  body: string,
 };
 
 type PostState = () => {
-  setTitle: {title: string},
-  setBody: {body: string}
+  setTitle: { title: string },
+  setBody: { body: string },
 };
 
 export function addPost() {
   return async (
-    dispatch: ({ type: string, payload: Post}) => {},
+    dispatch: ({ type: string, payload: Post }) => {},
     getState: PostState,
   ) => {
     const state = getState();
-    const post: Post = { title: state.setTitle.title, body: state.setBody.body };
+    const post: Post = {
+      title: state.setTitle.title,
+      body: state.setBody.body,
+    };
 
     try {
       await Axios.post('/todos', post);
