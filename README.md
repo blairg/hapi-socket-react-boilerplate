@@ -12,7 +12,7 @@ I've written a [blog article](http://hackerlite.xyz/2017/12/13/boilerplate-for-h
 
 ## Get it running locally 🏌️
 
-Assuming you are on Mac OS 🍏 and Node 8.9.3 or higher installed. Not tested on any other OS.
+Assuming you are on Mac OS 🍏 and Node 8.9.4 or higher installed. Not tested on any other OS.
 
 In the terminal run the following: -
 
@@ -21,7 +21,7 @@ In the terminal run the following: -
 * Create certificate for HTTPS `npm run createCertificate`. Fill in the questions when asked. Can be fictitious values.
 * `npm i`
 * `npm run dev`
-* In your browser go to `https://localhost:3000/index` (add security exception rule for local cert)
+* In your browser 👉 `https://localhost:3000/index` (add security exception rule for local cert)
 * 👏
 
 ### With docker 🐳
@@ -33,15 +33,15 @@ Assuming you have cloned the repo and installed the packages. Also, that you hav
 * Create certificate for HTTPS `npm run createCertificate`. Details are all optional.
 * Create an `.env` file, this can be blank as the Dockerfile has default values set.
 * `docker-compose up`
-* In your browser go to `https://localhost:3000/index` (add security exception rule for local cert)
+* In your browser 👉 `https://localhost:3000/index` (add security exception rule for local cert)
 
 ## Running tests 👩‍🔬👨‍🔬
 
 Following options: -
 
-* To just run the unit tests -> `npm run test`
-* To run tests with coverage (Istanbul) -> `npm run test:coverage`. This will output to `coverage` folder. Locate the `index.html` in here and open in your browser.
-* To watch tests for changes -> `npm run test:watch`
+* To just run the unit tests 👉 `npm run test`
+* To run tests with coverage (Istanbul) 👉 `npm run test:coverage`. This will output to `coverage` folder. Locate the `index.html` in here and open in your browser.
+* To watch tests for changes 👉 `npm run test:watch`
 * In VS Code you have 2 debug options avaiable for tests. `Unit Tests` will execute tests. `Tests with Coverage`, will run tests with coverage.
 
 ## Storybook 📚
@@ -53,11 +53,22 @@ Following options: -
 
 ## Linting 🔍
 
-* In the terminal run ESLint with -> `npm run lint`
+* In the terminal run ESLint with 👉 `npm run lint`
 
 ## Prettier 🙏
 
-* In the terminal run Prettier with -> `npm run pretty`
+* In the terminal run Prettier with 👉 `npm run pretty`
+
+## Flow
+
+More info head here 👉 [Flow Documentation](https://flow.org/en/docs/getting-started/)
+
+Ensure you have Flow installed globally by running 👉 `npm i -g flow-bin`.
+
+Then once installed, run the following commands: -
+
+* `npm run flow`
+* For coverage ->  `npm run flow:coverage`. Outputs to folder `flow-coverage`. Open the `index.html` in your browser to get an easy to navigate format.
 
 ## Issues 🤒
 
