@@ -6,6 +6,10 @@ echo "running -> npm test"
 # Run tests
 npm test
 
+echo "running -> npm lint"
+# Run lint
+npm run lint
+
 echo "running -> npm run pretty"
 # Run prettier before committing
 npm run pretty

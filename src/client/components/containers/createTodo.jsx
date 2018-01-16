@@ -1,13 +1,34 @@
 /* eslint-disable no-console */
 
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 
 import { setTitle, setBody, addPost } from './../../actions';
 
-class CreateTodo extends React.Component {
+type DefaultProps = {
+  title: '',
+  titleChange: () => {},
+  body: '',
+  bodyChange: () => {},
+  submitPost: () => {},
+  entries: '',
+};
+
+type Props = {
+  title: string,
+  titleChange: Function,
+  body: string,
+  bodyChange: Function,
+  submitPost: Function,
+  entries: string,
+};
+
+class CreateTodo extends React.Component<DefaultProps, Props, void> {
+  static defaultProps: Object;
+
   static async handleDelete(event) {
     event.preventDefault();
 
@@ -96,14 +117,14 @@ class CreateTodo extends React.Component {
   }
 }
 
-CreateTodo.propTypes = {
-  entries: PropTypes.array.isRequired,
-  titleChange: PropTypes.func.isRequired,
-  bodyChange: PropTypes.func.isRequired,
-  submitPost: PropTypes.func.isRequired,
-  title: PropTypes.string,
-  body: PropTypes.string,
-};
+// CreateTodo.propTypes = {
+//   entries: PropTypes.array.isRequired,
+//   titleChange: PropTypes.func.isRequired,
+//   bodyChange: PropTypes.func.isRequired,
+//   submitPost: PropTypes.func.isRequired,
+//   title: PropTypes.string,
+//   body: PropTypes.string,
+// };
 
 /* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
