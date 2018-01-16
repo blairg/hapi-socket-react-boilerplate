@@ -1,5 +1,7 @@
 # Rules
 
+First rule, abide by `code-of-conduct.md`.
+
 If anyone want's to contribute or for me to change/add/remove anything I'll be deligthed.
 
 Try and keep the coverage to 90% (green badge on coveralls). Also, make sure you are using latest versions of modules where possible. Add tests for new features or changes to existing code.
