@@ -1,0 +1,23 @@
+{
+  "concurrentFiles": 1,
+  "excludeGlob": [
+    "node_modules/**",
+    "test/**"
+  ],
+  "includeGlob": [
+    "src/client/**/**.jsx",
+    "src/client/**/**.js",
+    "src/client/**/**/**.jsx",
+    "src/server/**.js",
+    "src/server/**/**.js",
+    "src/shared/**/**.js"
+  ],
+  "outputDir": "flow-coverage/",
+  "projectDir": "./",
+  "threshold": 90,
+  "type": [
+    "text",
+    "html",
+    "json"
+  ]
+}

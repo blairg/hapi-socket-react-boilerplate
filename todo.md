@@ -1,3 +1,4 @@
 # Improvements still required: -
 
-* Use SASS for styles. Transpile within webpack. Node-sass 🤢
+* Webpack - chunks, dynamic-import-node, syntax-dynamic-import.
+* Look into Preact

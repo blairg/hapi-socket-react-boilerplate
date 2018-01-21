@@ -70,5 +70,8 @@ public/css/
 !public/css/skeleton.css
 dist/
 
-# storybook
+# Storybook
 storybook-static
+
+# Flow
+flow-coverage
