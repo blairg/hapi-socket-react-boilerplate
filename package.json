@@ -21,7 +21,11 @@
     "socket.io",
     "jest"
   ],
-  "precommit": "pre-commit-msg, pre-commit-hook",
+  "precommit": "pre-commit-msg, lint-staged",
+  "lint-staged": {
+    "*.js": "lint:js",
+    "*.scss": "lint:scss"
+   },
   "scripts": {
     "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
     "build:client:watch": "webpack --hot --watch --progress --colors --verbose --config webpack.client.config",
@@ -40,6 +44,7 @@
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "./node_modules/.bin/eslint src/ --fix",
     "lint:scss": "sass-lint -c .scss-lint.yml 'src/stylesheets/**/*.scss' -v",
+    "lint-staged": "lint-staged",
     "pre-commit-hook": "sh ./pre-commit",
     "pre-commit-msg": "echo 'Pre-commit checks...' && exit 0",
     "pretty": "prettier --single-quote --trailing-comma all --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",
@@ -93,6 +98,7 @@
     "jest-cli": "^22.0.4",
     "jsdom": "^11.5.1",
     "jsdom-global": "3.0.2",
+    "lint-staged": "^7.0.0",
     "node-sass": "^4.7.2",
     "nodemon": "^1.14.3",
     "npm-run-all": "^4.1.2",

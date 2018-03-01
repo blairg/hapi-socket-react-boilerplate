@@ -1,14 +1,12 @@
 #!/bin/sh
 
-echo "pre-commit hook"
-
 echo "running -> Tests"
 # Run tests
 npm test
 
 echo "running -> Linting"
-# Run tests
-npm test
+# Run linting
+npm lint
 
 echo "running -> Prettier"
 # Run prettier before committing
