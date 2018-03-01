@@ -10,7 +10,7 @@ services:
 
 env:
   global:
-    - BASE_DOCKER_IMAGE=node:8.9.1-alpine
+    - BASE_DOCKER_IMAGE=node:8.9.4-alpine
     - DOCKER_REPOSITORY=registry.heroku.com
     - DOCKER_DEPLOY_PATH=${DOCKER_REPOSITORY}/hapi-boilerplate-docker/web
 
