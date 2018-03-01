@@ -23,7 +23,7 @@
   ],
   "precommit": "pre-commit-hook",
   "scripts": {
-    "build:client": "webpack --progress --colors --verbose --config webpack.client.config ",
+    "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
     "build:client:watch": "webpack --hot --watch --progress --colors --verbose --config webpack.client.config",
     "build:client:prod": "NODE_ENV=production webpack -p --progress --colors --config webpack.client.prod.config",
     "build:dev": "npm run clean && npm run build:client && npm run build:server",
@@ -37,7 +37,8 @@
     "dev": "npm run clean && npm-run-all --parallel build:client:watch build:server:watch dev:server",
     "dev:server": "npm run build:server && NODE_NO_HTTP2=1 nodemon ./dist/server.js",
     "dev:debug": "NODE_NO_HTTP2=1 nodemon --nolazy --inspect-brk=5858 -w src --exec \"babel-node src/server/index.js --presets es2015,stage-0,react\"",
-    "lint": "./node_modules/.bin/eslint src/ --fix && sass-lint -c .scss-lint.yml 'src/stylesheets/**/*.scss' -v -q",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:js": "./node_modules/.bin/eslint src/ --fix",
     "lint:scss": "sass-lint -c .scss-lint.yml 'src/stylesheets/**/*.scss' -v -q",
     "pre-commit-hook": "sh ./pre-commit",
     "pretty": "prettier --single-quote --trailing-comma all --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",

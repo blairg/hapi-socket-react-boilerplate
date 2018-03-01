@@ -1,11 +1,15 @@
 #!/bin/sh
 
-echo "BG:::pre-commit hook"
+echo "pre-commit hook"
 
-echo "running -> npm test"
+echo "running -> Tests"
 # Run tests
 npm test
 
-echo "running -> npm run pretty"
+echo "running -> Linting"
+# Run tests
+npm test
+
+echo "running -> Prettier"
 # Run prettier before committing
 npm run pretty
