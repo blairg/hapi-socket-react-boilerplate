@@ -21,7 +21,7 @@
     "socket.io",
     "jest"
   ],
-  "precommit": "sh ./pre-commit",
+  "precommit": "sh ./pre-commit  ",
   "scripts": {
     "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
     "build:client:watch": "webpack --hot --watch --progress --colors --verbose --config webpack.client.config",
