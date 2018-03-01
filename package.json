@@ -21,7 +21,7 @@
     "socket.io",
     "jest"
   ],
-  "precommit": "pre-commit-msg, lint-staged",
+  "precommit": "pre-commit-msg, lint-staged, pretty",
   "lint-staged": {
     "*.js": "lint:js",
     "*.scss": "lint:scss"
