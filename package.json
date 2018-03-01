@@ -21,7 +21,7 @@
     "socket.io",
     "jest"
   ],
-  "precommit": "pre-commit-hook",
+  "precommit": "pre-commit-msg, pre-commit-hook",
   "scripts": {
     "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
     "build:client:watch": "webpack --hot --watch --progress --colors --verbose --config webpack.client.config",
@@ -39,8 +39,9 @@
     "dev:debug": "NODE_NO_HTTP2=1 nodemon --nolazy --inspect-brk=5858 -w src --exec \"babel-node src/server/index.js --presets es2015,stage-0,react\"",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "./node_modules/.bin/eslint src/ --fix",
-    "lint:scss": "sass-lint -c .scss-lint.yml 'src/stylesheets/**/*.scss' -v -q",
+    "lint:scss": "sass-lint -c .scss-lint.yml 'src/stylesheets/**/*.scss' -v",
     "pre-commit-hook": "sh ./pre-commit",
+    "pre-commit-msg": "echo 'Pre-commit checks...' && exit 0",
     "pretty": "prettier --single-quote --trailing-comma all --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",
     "start": "NODE_NO_HTTP2=1 node ./dist/server.js",
     "test": "jest --bail --config jest.config.js",
