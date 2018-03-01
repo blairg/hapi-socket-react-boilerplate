@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "pre-commit hook"
+echo "BG:::pre-commit hook"
 
 echo "running -> npm test"
 # Run tests

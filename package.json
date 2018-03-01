@@ -21,6 +21,7 @@
     "socket.io",
     "jest"
   ],
+  "precommit": "sh ./pre-commit",
   "scripts": {
     "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
     "build:client:watch": "webpack --hot --watch --progress --colors --verbose --config webpack.client.config",
@@ -98,6 +99,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.9",
     "postcss-scss": "^1.0.2",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.9.2",
     "purify-css": "^1.2.5",
     "react-test-renderer": "^16.2.0",
