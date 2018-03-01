@@ -1,5 +1,4 @@
 FROM blairguk/node-sass-alpine:8.9.4
-MAINTAINER blair.garrett1@gmail.com
 LABEL maintainer="blair.garrett1@gmail.com"
 
 ARG PROD=0
