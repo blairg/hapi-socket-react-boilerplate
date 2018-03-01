@@ -23,8 +23,8 @@
   ],
   "precommit": "pre-commit-msg, lint-staged, pretty",
   "lint-staged": {
-    "*.js": "lint:js",
-    "*.scss": "lint:scss"
+    "*.js": "npm run lint:js",
+    "*.scss": "npm run lint:scss"
   },
   "scripts": {
     "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
