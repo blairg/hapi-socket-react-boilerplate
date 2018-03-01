@@ -24,7 +24,7 @@ describe('client/services/cacheService', () => {
 
       await CacheService.getTodos(callback);
 
-      expect(callback).toBeCalledWith(todo, null);
+      expect(callback).toBeCalledWith('fail', null);
     });
 
     test('should call the callback with an error status of 500', async () => {
