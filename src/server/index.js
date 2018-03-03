@@ -72,5 +72,8 @@ server.start(err => {
     throw err;
   }
 
-  logToConsole({ type: 'info', message: `Server running at: ${server.info.uri}` });
+  logToConsole({
+    type: 'info',
+    message: `Server running at: ${server.info.uri}`,
+  });
 });
