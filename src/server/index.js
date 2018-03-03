@@ -14,10 +14,10 @@ import Routes from './routes/all';
 // Logging
 const logToConsole = ({ type, message }) => {
   if (type === 'error') {
-    winston.log({ level: 'error', msg: message });
+    winston.log('error', message);
   }
 
-  winston.log({ level: 'info', msg: message });
+  winston.log('info', message);
 };
 
 /*eslint-disable */
@@ -56,7 +56,7 @@ const socketPrefix = 'todos';
 // Instrument Hapi.js Server
 server.register(Plugins, error => {
   if (error) {
-    logToConsole('error', error);
+    logToConsole({ type: 'error', message: error });
   }
 
   server.route(Routes.Public);
