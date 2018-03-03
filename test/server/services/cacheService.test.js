@@ -30,7 +30,7 @@ describe('server/services/cacheService', () => {
       const todo = [{ title: 'my title', body: 'my body' }];
 
       cache.put = jest.fn();
-      cacheService.set(todo);
+      cacheService.set({ values: todo });
 
       expect(cache.put).toHaveBeenCalledWith(
         'hapi-boilerplate-key',
@@ -40,7 +40,7 @@ describe('server/services/cacheService', () => {
     });
 
     test('should not set the cache when null is passed in', () => {
-      cacheService.set(undefined);
+      cacheService.set({ values: undefined });
       cache.put = jest.fn();
 
       expect(cache.put).toHaveBeenCalledTimes(0);
