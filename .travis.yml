@@ -10,7 +10,7 @@ services:
 
 env:
   global:
-    - BASE_DOCKER_IMAGE=node:8.9.1-alpine
+    - BASE_DOCKER_IMAGE=node:8.9.4-alpine
     - DOCKER_REPOSITORY=registry.heroku.com
     - DOCKER_DEPLOY_PATH=${DOCKER_REPOSITORY}/hapi-boilerplate-docker/web
 
@@ -21,11 +21,12 @@ cache:
     - "node_modules"
 
 script: 
-  - npm run lint
-  - npm run pretty
-  - npm run test:coverage
+  # - npm run lint
+  # - npm run pretty
+  # - npm run test:coverage
   - docker build --build-arg PROD=${PROD} --build-arg HOST=${HOST} --build-arg SOCKET_URL=${SOCKET_URL} --build-arg BUILD_ENV=${BUILD_ENV} --cache-from ${BASE_DOCKER_IMAGE} -t ${DOCKER_DEPLOY_PATH} .
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
+  # - if [ "$TRAVIS_BRANCH" = "master" ]; then docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}; fi
+  - docker login --username=_ --password=${HEROKU_TOKEN} ${DOCKER_REPOSITORY} && docker push ${DOCKER_DEPLOY_PATH}
 
 after_success:
   - cat ./coverage/lcov.info | coveralls
