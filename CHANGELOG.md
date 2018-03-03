@@ -10,6 +10,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * Fix - rolling back to this version.
 * Added - Linting staged files and running `pretty-quick` with a `pre-commit` hook.
 
+## 1.9.0
+
+* Changed - Upgrading `axios` and `autoprefixer` packages.
+
+## 1.8.0
+
+* Changed - Pre-commit now runs pretty against staged files.
+* Changed - Using RORO pattern where applicable.
+
+## 1.7.0
+
+* Changed - Pre-commit now lints git staged files.
+* Changed - Updated NPM packages.
+
 ## 1.6.0
 
 * Changed - Support for JSX fragments.
