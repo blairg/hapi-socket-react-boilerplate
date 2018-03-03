@@ -1,18 +1,18 @@
 import Moment from 'moment';
 
-const timeRangeMessage = (value, label) =>
+const timeRangeMessage = ({ value, label }) =>
   `${Math.round(value)} ${label}${value === 1 ? '' : 's'} ago`;
 
 const calculateSeconds = timeDifference => {
   const seconds = timeDifference < 1 ? 1 : timeDifference;
 
-  return timeRangeMessage(seconds, 'second');
+  return timeRangeMessage({ value: seconds, label: 'second' });
 };
 
-const messageToDisplay = (timeDifference, dateTypeToCheck, dateType) => {
+const messageToDisplay = ({ timeDifference, dateTypeToCheck, dateType }) => {
   const calculatedDifference = timeDifference / dateTypeToCheck;
 
-  return timeRangeMessage(calculatedDifference, dateType);
+  return timeRangeMessage({ value: calculatedDifference, label: dateType });
 };
 
 export default function calculateTimeDifference(todoDate) {
@@ -30,24 +30,48 @@ export default function calculateTimeDifference(todoDate) {
   }
 
   if (timeDifference < hourInSeconds) {
-    return messageToDisplay(timeDifference, minuteInSeconds, 'minute');
+    return messageToDisplay({
+      timeDifference,
+      dateTypeToCheck: minuteInSeconds,
+      dateType: 'minute',
+    });
   }
 
   if (timeDifference < dayInSeconds) {
-    return messageToDisplay(timeDifference, hourInSeconds, 'hour');
+    return messageToDisplay({
+      timeDifference,
+      dateTypeToCheck: hourInSeconds,
+      dateType: 'hour',
+    });
   }
 
   if (timeDifference < weekInSeconds) {
-    return messageToDisplay(timeDifference, dayInSeconds, 'day');
+    return messageToDisplay({
+      timeDifference,
+      dateTypeToCheck: dayInSeconds,
+      dateType: 'day',
+    });
   }
 
   if (timeDifference < monthInSeconds) {
-    return messageToDisplay(timeDifference, weekInSeconds, 'week');
+    return messageToDisplay({
+      timeDifference,
+      dateTypeToCheck: weekInSeconds,
+      dateType: 'week',
+    });
   }
 
   if (timeDifference < yearInSeconds) {
-    return messageToDisplay(timeDifference, monthInSeconds, 'month');
+    return messageToDisplay({
+      timeDifference,
+      dateTypeToCheck: monthInSeconds,
+      dateType: 'month',
+    });
   }
 
-  return messageToDisplay(timeDifference, yearInSeconds, 'year');
+  return messageToDisplay({
+    timeDifference,
+    dateTypeToCheck: yearInSeconds,
+    dateType: 'year',
+  });
 }

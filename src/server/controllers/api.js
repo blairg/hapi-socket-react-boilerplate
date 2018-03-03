@@ -31,7 +31,7 @@ export default {
         ...payload,
       });
 
-      cacheService.set(todos);
+      cacheService.set({ values: todos });
       request.server.publish(`/${socketPrefix}`, todos);
 
       return reply({ created: 'OK' }).code(HttpStatus.CREATED);
@@ -42,7 +42,7 @@ export default {
   },
   delete: {
     handler: (request, reply) => {
-      cacheService.set([]);
+      cacheService.set({ values: [] });
       request.server.publish(`/${socketPrefix}`, []);
 
       return reply({ deleted: 'OK' }).code(HttpStatus.RESET_CONTENT);
