@@ -1,6 +1,6 @@
 {
   "name": "hapi-socket-react-boilerplate",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description":
     "Boilerplate app to get you up and running with Hapi, HTTPS, HTTP/2, Web Socket and React/Redux.",
   "main": "src/server/index.js",
