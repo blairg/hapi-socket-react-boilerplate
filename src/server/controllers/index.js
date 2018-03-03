@@ -1,26 +1,26 @@
 /* eslint-disable import/no-unresolved */
 
-import React from "react";
-import ReactDOMServer from "react-dom/server";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunkMiddleware from "redux-thunk";
-import { createLogger } from "redux-logger";
-import HttpStatus from "http-status";
-import DecodeHtml from "decode-html";
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import HttpStatus from 'http-status';
+import DecodeHtml from 'decode-html';
 
-import rootReducer from "./../../client/reducers";
-import CacheServiceImport from "./../services/cacheService";
+import rootReducer from './../../client/reducers';
+import CacheServiceImport from './../services/cacheService';
 
 // React Components
-import Todos from "./../../client/components/containers/todos.jsx";
-import Index from "./../../client/components/presentation/index.jsx";
+import Todos from './../../client/components/containers/todos.jsx';
+import Index from './../../client/components/presentation/index.jsx';
 
 const loggerMiddleware = createLogger();
 /*eslint-disable */
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunkMiddleware, loggerMiddleware)
+  applyMiddleware(thunkMiddleware, loggerMiddleware),
 );
 /* eslint-enable */
 
@@ -42,11 +42,11 @@ export default {
       const indexComponent = <Index todos={todoComponent} />;
 
       let indexPage = DecodeHtml(
-        ReactDOMServer.renderToStaticMarkup(indexComponent)
+        ReactDOMServer.renderToStaticMarkup(indexComponent),
       );
       indexPage = indexPage.replace(/&quot;/gi, '"');
 
       return reply(indexPage).code(HttpStatus.OK);
-    }
-  }
+    },
+  },
 };

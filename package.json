@@ -61,8 +61,8 @@
     "lint-staged": "lint-staged",
     "pre-commit-msg": "echo 'Pre-commit checks...' && exit 0",
     "pretty":
-      "prettier --single-quote --trailing-comma all --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",
-    "pretty-quick": "pretty-quick --staged",
+      "prettier --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",
+    "pretty-quick": "pretty-quick",
     "start": "NODE_NO_HTTP2=1 node ./dist/server.js",
     "test": "jest --bail --config jest.config.js",
     "test:coverage":
