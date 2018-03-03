@@ -7,29 +7,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.10.0
 
-- Fix - rolling back to this version.
-- Added - Linting staged files and running `pretty-quick` with a `pre-commit` hook.
+* Fix - rolling back to this version.
+* Added - Linting staged files and running `pretty-quick` with a `pre-commit` hook.
 
 ## 1.6.0
 
-- Changed - Support for JSX fragments.
+* Changed - Support for JSX fragments.
 
 ## 1.5.0
 
-- Added - Support for SCSS. Removed CSS in favour of SCSS.
+* Added - Support for SCSS. Removed CSS in favour of SCSS.
 
 ## 1.4.0
 
-- Added - Storybook stories.
+* Added - Storybook stories.
 
 ## 1.3.0
 
-- Changed - Converted tests from Mocha to Jest.
+* Changed - Converted tests from Mocha to Jest.
 
 ## 1.1.0
 
-- Added - Support for Prettier npm package.
+* Added - Support for Prettier npm package.
 
 ## 1.0.0
 
-- Initial Project release.
+* Initial Project release.
