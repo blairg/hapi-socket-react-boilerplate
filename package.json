@@ -1,8 +1,7 @@
 {
   "name": "hapi-socket-react-boilerplate",
   "version": "1.10.0",
-  "description":
-    "Boilerplate app to get you up and running with Hapi, HTTPS, HTTP/2, Web Socket and React/Redux.",
+  "description": "Boilerplate app to get you up and running with Hapi, HTTPS, HTTP/2, Web Socket and React/Redux.",
   "main": "src/server/index.js",
   "homepage": "https://hapi-boilerplate-docker.herokuapp.com/index",
   "repository": {
@@ -28,45 +27,30 @@
     "*.scss": "npm run lint:scss"
   },
   "scripts": {
-    "build:client":
-      "webpack --progress --colors --verbose --config webpack.client.config",
-    "build:client:watch":
-      "webpack --hot --watch --progress --colors --verbose --config webpack.client.config",
-    "build:client:prod":
-      "NODE_ENV=production webpack -p --progress --colors --config webpack.client.prod.config",
-    "build:dev":
-      "npm run clean && npm run build:client && npm run build:server",
-    "build:server":
-      "webpack --progress --colors --verbose --config webpack.server.config",
-    "build:server:watch":
-      "webpack --hot --watch --progress --colors --verbose --config webpack.server.config",
-    "build:server:prod":
-      "NODE_ENV=production webpack -p --progress --colors --config webpack.server.prod.config",
+    "build:client": "webpack --progress --colors --verbose --config webpack.client.config",
+    "build:client:watch": "webpack --hot --watch --progress --colors --verbose --config webpack.client.config",
+    "build:client:prod": "NODE_ENV=production webpack -p --progress --colors --config webpack.client.prod.config",
+    "build:dev": "npm run clean && npm run build:client && npm run build:server",
+    "build:server": "webpack --progress --colors --verbose --config webpack.server.config",
+    "build:server:watch": "webpack --hot --watch --progress --colors --verbose --config webpack.server.config",
+    "build:server:prod": "NODE_ENV=production webpack -p --progress --colors --config webpack.server.prod.config",
     "build:watch": "webpack --progress --colors --watch --verbose ",
-    "build:prod":
-      "npm run clean && npm run build:client:prod && npm run build:server:prod",
-    "clean":
-      "del=\"rm -Rf\" && $del ./public/{js,css}/*.{css,map,js,json} && $del ./dist/*",
-    "createCertificate":
-      "sudo chmod +x ./ssl/createCerts.sh && sh ./ssl/createCerts.sh",
-    "dev":
-      "npm run clean && npm-run-all --parallel build:client:watch build:server:watch dev:server",
-    "dev:server":
-      "npm run build:server && NODE_NO_HTTP2=1 nodemon ./dist/server.js",
-    "dev:debug":
-      "NODE_NO_HTTP2=1 nodemon --nolazy --inspect-brk=5858 -w src --exec \"babel-node src/server/index.js --presets es2015,stage-0,react\"",
+    "build:prod": "npm run clean && npm run build:client:prod && npm run build:server:prod",
+    "clean": "del=\"rm -Rf\" && $del ./public/{js,css}/*.{css,map,js,json} && $del ./dist/*",
+    "createCertificate": "sudo chmod +x ./ssl/createCerts.sh && sh ./ssl/createCerts.sh",
+    "dev": "npm run clean && npm-run-all --parallel build:client:watch build:server:watch dev:server",
+    "dev:server": "npm run build:server && NODE_NO_HTTP2=1 nodemon ./dist/server.js",
+    "dev:debug": "NODE_NO_HTTP2=1 nodemon --nolazy --inspect-brk=5858 -w src --exec \"babel-node src/server/index.js --presets es2015,stage-0,react\"",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "./node_modules/.bin/eslint src/ --fix",
     "lint:scss": "sass-lint -c .scss-lint.yml 'src/stylesheets/**/*.scss' -v",
     "lint-staged": "lint-staged",
     "pre-commit-msg": "echo 'Pre-commit checks...' && exit 0",
-    "pretty":
-      "prettier --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",
+    "pretty": "prettier --write \"{src,test}/**/**/*.js*\" \"{src,test}/**/**/**/*.js*\"",
     "pretty-quick": "pretty-quick",
     "start": "NODE_NO_HTTP2=1 node ./dist/server.js",
     "test": "jest --bail --config jest.config.js",
-    "test:coverage":
-      "rm -rf ./coverage && jest --config jest.config.js --coverage",
+    "test:coverage": "rm -rf ./coverage && jest --config jest.config.js --coverage",
     "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006 -c .storybook",
