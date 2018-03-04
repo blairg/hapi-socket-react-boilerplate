@@ -12,12 +12,12 @@ import Plugins from './plugins';
 import Routes from './routes/all';
 
 // Logging
-const logToConsole = ({ type, message }) => {
+const logToConsole = (type, message) => {
   if (type === 'error') {
-    winston.log({ level: 'error', msg: message });
+    winston.log('error', message);
   }
 
-  winston.log({ level: 'info', msg: message });
+  winston.log('info', message);
 };
 
 /*eslint-disable */
@@ -72,8 +72,5 @@ server.start(err => {
     throw err;
   }
 
-  logToConsole({
-    type: 'info',
-    message: `Server running at: ${server.info.uri}`,
-  });
+  logToConsole('info', `Server running at: ${server.info.uri}`);
 });

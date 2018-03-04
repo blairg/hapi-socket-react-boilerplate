@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.10.0
+
+* Fix - rolling back to this version.
+* Added - Linting staged files and running `pretty-quick` with a `pre-commit` hook.
+
 ## 1.9.0
 
 * Changed - Upgrading `axios` and `autoprefixer` packages.

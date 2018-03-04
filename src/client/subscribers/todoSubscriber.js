@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 const socketPrefix = 'todos';
 
-const createNotification = ({ title, options }) => {
+const createNotification = (title, options) => {
   const notification = new Notification(title, options);
 
   setTimeout(notification.close.bind(notification), 2500);
@@ -31,7 +31,7 @@ const notifyOfChanges = message => {
   // Let's check whether notification permissions have already been granted
   if (Notification.permission === 'granted') {
     // If it's okay let's create a notification
-    createNotification({ title, options });
+    createNotification(title, options);
   }
 
   // Otherwise, we need to ask the user for permission
@@ -39,7 +39,7 @@ const notifyOfChanges = message => {
     Notification.requestPermission(permission => {
       // If the user accepts, let's create a notification
       if (permission === 'granted') {
-        createNotification({ title, options });
+        createNotification(title, options);
       }
     });
   }
