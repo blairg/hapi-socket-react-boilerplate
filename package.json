@@ -1,6 +1,6 @@
 {
   "name": "hapi-socket-react-boilerplate",
-  "version": "1.9.0",
+  "version": "1.8.0",
   "description":
     "Boilerplate app to get you up and running with Hapi, HTTPS, HTTP/2, Web Socket and React/Redux.",
   "main": "src/server/index.js",
@@ -91,7 +91,7 @@
     "@storybook/addon-actions": "^3.3.14",
     "@storybook/addon-links": "^3.3.14",
     "@storybook/react": "^3.3.14",
-    "autoprefixer": "^8.1.0",
+    "autoprefixer": "^7.2.6",
     "axios-mock-adapter": "^1.14.1",
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.1",
@@ -139,7 +139,7 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.17.1",
     "decode-html": "^2.0.0",
     "hapi": "16.2.0",
     "hapi-swagger": "^8.0.0",
