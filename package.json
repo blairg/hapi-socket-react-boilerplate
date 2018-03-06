@@ -113,7 +113,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "decode-html": "^2.0.0",
-    "hapi": "16.2.0",
+    "hapi": "17.0.0",
     "hapi-swagger": "^8.0.0",
     "http-status": "^1.0.1",
     "http2": "^3.3.7",
