@@ -29,7 +29,7 @@ In the terminal run the following: -
 * Create certificate for HTTPS `npm run createCertificate`. Fill in the questions when asked. Can be fictitious values.
 * `npm i`
 * `npm run dev`
-* In your browser go to `https://localhost:3000/index` (add security exception rule for local cert). Look here for [Chrome details](chrome://flags/#allow-insecure-localhost).
+* In your browser go to `https://localhost:3000/index` (add security exception rule for local cert). Look here for Chrome  chrome://flags/#allow-insecure-localhost.
 * 👏
 
 ### Run with docker 🐳
