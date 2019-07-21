@@ -113,14 +113,14 @@
   "dependencies": {
     "axios": "^0.17.1",
     "decode-html": "^2.0.0",
-    "hapi": "16.2.0",
+    "hapi": "17.0.0",
     "hapi-swagger": "^8.0.0",
     "http-status": "^1.0.1",
     "http2": "^3.3.7",
-    "inert": "^4.2.1",
+    "inert": "^5.0.0",
     "memory-cache": "^0.2.0",
     "moment": "^2.20.1",
-    "nes": "^6.5.2",
+    "nes": "^7.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -128,7 +128,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "vision": "^4.1.1",
+    "vision": "^5.0.0",
     "winston": "^2.4.0"
   },
   "peerDependencies": {
